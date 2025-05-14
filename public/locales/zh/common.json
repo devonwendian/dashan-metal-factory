@@ -1,8 +1,16 @@
 {
   "home": "首页",
-  "products": "产品中心",
+  "products": "产品",
   "about": "关于我们",
   "contact": "联系我们",
-  "language": "语言",
-  "welcome": "欢迎来到我们的金属加工工厂！"
+  "factory_name_short": "大山金属",
+  "factory_name": "东莞黄江大山金属制品厂",
+  "logo_alt": "金属旋压与拉伸加工 - 东莞黄江大山金属制品厂",
+  "slogan": "专业从事金属旋压与拉伸加工",
+  "toggle_menu": "切换菜单",
+  "select_language": "选择语言",
+  "language": {
+    "zh": "中文",
+    "en": "English"
+  }
 }

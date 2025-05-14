@@ -3,6 +3,14 @@
   "products": "Products",
   "about": "About Us",
   "contact": "Contact",
-  "language": "Language",
-  "welcome": "Welcome to our metal processing factory!"
+  "factory_name_short": "Dashan Metal",
+  "factory_name": "Dongguan Huangjiang Dashan Metal Products Factory",
+  "logo_alt": "Metal Spinning and Stretching - Dongguan Huangjiang Dashan Metal Products Factory",
+  "slogan": "Specializing in Metal Spinning & Stretching",
+  "toggle_menu": "Toggle Menu",
+  "select_language": "Select Language",
+  "language": {
+    "zh": "Chinese",
+    "en": "English"
+  }
 }
