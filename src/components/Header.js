@@ -4,7 +4,6 @@ import LanguageSwitcher from './LanguageSwitcher';
 import Image from 'next/image';
 import logo from '../../public/images/logo.jpg';
 import { useState } from 'react';
-import Head from 'next/head';
 
 export default function Header() {
   const { t } = useTranslation('common');

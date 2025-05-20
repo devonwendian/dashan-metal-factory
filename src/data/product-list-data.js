@@ -4,7 +4,7 @@ const productListData = {
       index: 'product40',
       product_id: 'metal-spinning-product40',
       name: 'Red Copper Distiller Pots Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product40/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product40/metal-spinning-2.jpeg',
@@ -19,7 +19,7 @@ const productListData = {
       index: 'product51',
       product_id: 'metal-spinning-product51',
       name: 'Red Copper Wine Vessel Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product51/metal-spinning-1.jpg',
         '/images/products/metal-spinning/product51/metal-spinning-2.jpg',
@@ -33,7 +33,7 @@ const productListData = {
       index: 'product65',
       product_id: 'metal-spinning-product65',
       name: 'Aluminum Irregular Formed Lampshade Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product65/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product65/metal-spinning-2.jpeg',
@@ -48,7 +48,7 @@ const productListData = {
       index: 'product88',
       product_id: 'metal-spinning-product88',
       name: 'Aluminum Wall Lampshade Lighting Cover Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product88/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product88/metal-spinning-2.jpeg',
@@ -63,7 +63,7 @@ const productListData = {
       index: 'product93',
       product_id: 'metal-spinning-product93',
       name: 'Red Copper Candy Dish Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product93/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product93/metal-spinning-2.jpeg',
@@ -78,7 +78,7 @@ const productListData = {
       index: 'product102',
       product_id: 'metal-spinning-product102',
       name: 'Aluminum Chandelier Lampshade Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product102/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product102/metal-spinning-2.jpeg',
@@ -93,7 +93,7 @@ const productListData = {
       index: 'product110',
       product_id: 'metal-spinning-product110',
       name: 'Aluminum Table Lamp Base Lampshade Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product110/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product110/metal-spinning-2.jpeg',
@@ -108,7 +108,7 @@ const productListData = {
       index: 'product122',
       product_id: 'metal-spinning-product122',
       name: 'Aluminum Candle Holder Base Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product122/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product122/metal-spinning-2.jpeg',
@@ -123,7 +123,7 @@ const productListData = {
       index: 'product127',
       product_id: 'metal-spinning-product127',
       name: 'Aluminum Machine Cover Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product127/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product127/metal-spinning-2.jpeg',
@@ -138,7 +138,7 @@ const productListData = {
       index: 'product128',
       product_id: 'metal-spinning-product128',
       name: 'Brass Candlestick Base Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product128/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product128/metal-spinning-2.jpeg',
@@ -153,7 +153,7 @@ const productListData = {
       index: 'product129',
       product_id: 'metal-spinning-product129',
       name: 'Aluminum Milk Can Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product129/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product129/metal-spinning-2.jpeg',
@@ -168,7 +168,7 @@ const productListData = {
       index: 'product138',
       product_id: 'metal-spinning-product138',
       name: 'Aluminum Bar Stool Seat Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product138/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product138/metal-spinning-2.jpeg',
@@ -183,7 +183,7 @@ const productListData = {
       index: 'product139',
       product_id: 'metal-spinning-product139',
       name: 'Iron Mechanical Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product139/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product139/metal-spinning-2.jpeg',
@@ -196,9 +196,9 @@ const productListData = {
     },
     {
       index: 'product140',
-      product_id: 'metal-spinning-product139',
+      product_id: 'metal-spinning-product140',
       name: 'Aluminum Bar Table Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product140/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product140/metal-spinning-2.jpeg',
@@ -213,7 +213,7 @@ const productListData = {
       index: 'product142',
       product_id: 'metal-spinning-product142',
       name: 'Aluminum Automatic Cooking Pot Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product142/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product142/metal-spinning-2.jpeg',
@@ -228,7 +228,7 @@ const productListData = {
       index: 'product155',
       product_id: 'metal-spinning-product155',
       name: 'Aluminum Pendant Light Lampshade Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product155/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product155/metal-spinning-2.jpeg',
@@ -243,7 +243,7 @@ const productListData = {
       index: 'product162',
       product_id: 'metal-spinning-product162',
       name: 'Aluminum Filter Cartridge Machine Housing Spinning Parts',
-      category: ['Metal Spinning'],
+      category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product162/metal-spinning-1.jpeg',
         '/images/products/metal-spinning/product162/metal-spinning-2.jpeg',
@@ -260,7 +260,7 @@ const productListData = {
       index: 'product48',
       product_id: 'metal-deep-drawing-product48',
       name: 'Stainless Steel Casing Stamping Parts',
-      category: ['Metal Stamping', 'Metal Deep Drawing'],
+      category: ['Metal Stamping Parts', 'Metal Deep Drawing Parts'],
       images: [
         '/images/products/metal-deep-drawing/product48/metal-deep-drawing-1.jpeg',
         '/images/products/metal-deep-drawing/product48/metal-deep-drawing-2.jpeg',
@@ -275,7 +275,7 @@ const productListData = {
       index: 'product66',
       product_id: 'metal-deep-drawing-product66',
       name: 'Aluminum Industrial Lampshade Deep Drawing Parts',
-      category: ['Metal Deep Drawing'],
+      category: ['Metal Deep Drawing Parts'],
       images: [
         '/images/products/metal-deep-drawing/product66/metal-deep-drawing-1.jpeg',
         '/images/products/metal-deep-drawing/product66/metal-deep-drawing-2.jpeg',
@@ -290,7 +290,7 @@ const productListData = {
       index: 'product89',
       product_id: 'metal-deep-drawing-product89',
       name: 'Aluminum Large Switch Enclosure Deep Drawing Parts',
-      category: ['Metal Deep Drawing'],
+      category: ['Metal Deep Drawing Parts'],
       images: [
         '/images/products/metal-deep-drawing/product89/metal-deep-drawing-1.jpeg',
         '/images/products/metal-deep-drawing/product89/metal-deep-drawing-2.jpeg',
@@ -304,7 +304,7 @@ const productListData = {
       index: 'product123',
       product_id: 'metal-deep-drawing-product123',
       name: 'Stainless Steel Baking Tray Base Deep Drawing Parts',
-      category: ['Metal Deep Drawing'],
+      category: ['Metal Deep Drawing Parts'],
       images: [
         '/images/products/metal-deep-drawing/product123/metal-deep-drawing-1.jpeg',
         '/images/products/metal-deep-drawing/product123/metal-deep-drawing-2.jpeg',
@@ -319,7 +319,7 @@ const productListData = {
       index: 'product134',
       product_id: 'metal-deep-drawing-product134',
       name: 'Iron Washing Machine Base Deep Drawing Parts',
-      category: ['Metal Deep Drawing'],
+      category: ['Metal Deep Drawing Parts'],
       images: [
         '/images/products/metal-deep-drawing/product134/metal-deep-drawing-1.jpeg',
         '/images/products/metal-deep-drawing/product134/metal-deep-drawing-2.jpeg',
@@ -334,7 +334,7 @@ const productListData = {
       index: 'product157',
       product_id: 'metal-deep-drawing-product157',
       name: 'Aluminum Storage Bucket Deep Drawing Parts',
-      category: ['Metal Deep Drawing'],
+      category: ['Metal Deep Drawing Parts'],
       images: [
         '/images/products/metal-deep-drawing/product157/metal-deep-drawing-1.jpeg',
         '/images/products/metal-deep-drawing/product157/metal-deep-drawing-2.jpeg',
@@ -349,7 +349,7 @@ const productListData = {
       index: 'product189',
       product_id: 'metal-deep-drawing-product189',
       name: 'Aluminum Perforated Mechanical Deep Drawing Parts',
-      category: ['Metal Deep Drawing'],
+      category: ['Metal Deep Drawing Parts'],
       images: [
         '/images/products/metal-deep-drawing/product189/metal-deep-drawing-1.jpeg',
         '/images/products/metal-deep-drawing/product189/metal-deep-drawing-2.jpeg',
@@ -363,7 +363,7 @@ const productListData = {
       index: 'product190',
       product_id: 'metal-deep-drawing-product190',
       name: 'Stainless Steel Industrial Washing Machine Housing Deep Drawing Parts',
-      category: ['Metal Deep Drawing'],
+      category: ['Metal Deep Drawing Parts'],
       images: [
         '/images/products/metal-deep-drawing/product190/metal-deep-drawing-1.jpeg',
         '/images/products/metal-deep-drawing/product190/metal-deep-drawing-2.jpeg',

@@ -1,16 +1,17 @@
 {
   "home": "Home",
   "products": "Products",
-  "about": "About Us",
+  "about": "About",
   "contact": "Contact",
-  "factory_name_short": "Dashan Metal",
+  "Contact Us": "Contact Us",
+  "WeChat": "WeChat",
   "factory_name": "Dongguan Huangjiang Dashan Metal Products Factory",
-  "logo_alt": "Metal Spinning and Stretching - Dongguan Huangjiang Dashan Metal Products Factory",
-  "slogan": "Specializing in Metal Spinning & Stretching",
+  "logo_alt": "Metal Spinning and Stamping and Deep Drawing - Dongguan Huangjiang Dashan Metal Products Factory",
   "toggle_menu": "Toggle Menu",
   "select_language": "Select Language",
   "language": {
-    "zh": "Chinese",
+    "zh": "中文",
     "en": "English"
-  }
+  },
+  "© 2025 Dongguan Huangjiang Dashan Metal Products Factory. All rights reserved.": "© 2025 Dongguan Huangjiang Dashan Metal Products Factory. All rights reserved."
 }

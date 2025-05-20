@@ -122,10 +122,10 @@ const banners = [
 <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-start">
   <div className="text-left text-white px-6 md:px-12 w-full max-w-4xl mx-auto">
     {/* 标题靠左，加粗并添加下划线 */}
-    <h1 className="text-4xl md:text-5xl font-extrabold mb-8 leading-tight drop-shadow-lg animate-fadeIn">
+    <h2 className="text-4xl md:text-5xl font-extrabold mb-8 leading-tight drop-shadow-lg animate-fadeIn">
       {banner.title}
       <div className="w-20 h-1 bg-yellow-500 mt-2"></div>
-    </h1>
+    </h2>
     {/* 描述居中，优化圆点和间距 */}
     <div className="text-base md:text-lg space-y-6 max-w-xl mx-auto animate-fadeIn animate-delay-200">
       {banner.description.map((desc, i) => (

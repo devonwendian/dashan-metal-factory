@@ -6,29 +6,16 @@ import Footer from '@/components/Footer';
 import { useTranslation } from 'next-i18next';
 import productListData from '@/data/product-list-data';
 import { useRouter } from 'next/router';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import ContactUs from '@/components/ContactUs';
+import Head from 'next/head';
 
 const allData = [...productListData.metalSpinning, ...productListData.metalDeepDrawing];
 
-// 动态生成静态路径
-// export async function getStaticPaths() {
-//   const paths = products.map((product) => ({
-//     params: { slug: product.slug },
-//   }));
-//   return { paths, fallback: false };
-// }
-// export async function getStaticProps({ locale }) {
-//   return {
-//     props: {
-//       ...(await serverSideTranslations(locale, ['common'])),
-//     },
-//   };
-// }
-
 export async function getStaticPaths() {
-  const locales = ['zh', 'en']; // 支持的语言
+  const locales = ['zh', 'en'];
   const paths = [];
 
-  // 确保 products 是一个数组
   if (Array.isArray(allData)) {
     for (const product of allData) {
       for (const locale of locales) {
@@ -42,44 +29,54 @@ export async function getStaticPaths() {
     }
   }
 
-  console.log('----------test');
-  console.log(paths);
   return {
     paths,
-    fallback: false, // 未预渲染的页面返回 404
+    fallback: false,
   };
 }
 
-
-// 获取静态道具
 export async function getStaticProps({ params, locale }) {
   const product = allData.find((p) => p.product_id === params.product_id);
-  return { props: { product,  } };
+  return {
+    props: {
+      product,
+      ...(await serverSideTranslations(locale, ['common', 'product-detail', 'product-list'])),
+    },
+  };
 }
 
-// 生成 SEO 元数据
-// export const metadata = ({ product }) => ({
-//   title: `${product.name} - Your Factory`,
-//   description: product.description,
-//   openGraph: {
-//     title: `${product.name} - Your Factory`,
-//     description: product.description,
-//     images: [{ url: product.image[0] }],
-//   },
-// });
-
 export default function ProductDetail({ product }) {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(['common', 'product-detail', 'product-list']);
   const router = useRouter();
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
 
   if (!product) {
     return <div className="text-center py-12">{t('product_not_found')}</div>;
   }
-
+  const baseUrl = 'https://dsmetalstamping.com';
   return (
     <>
+      <Head>
+        <title>{t('title', {ns: 'product-detail', productName: t(product.name, {ns: 'product-list'})})}</title>
+        <meta name="description" content={t('description', {ns: 'product-detail', productName: t(product.name, {ns: 'product-list'})})} />
+        <link 
+          rel="alternate" 
+          hreflang="zh" 
+          href={`${baseUrl}/zh/products/${product.product_id}`} 
+        />
+        <link 
+          rel="alternate" 
+          hreflang="en" 
+          href={`${baseUrl}/products/${product.product_id}`} 
+        />
+        <link 
+          rel="alternate" 
+          hreflang="x-default"
+          href={`${baseUrl}/products/${product.product_id}`} 
+        />
+      </Head>
       <Header />
+      <h1 class="sr-only">{t('detail-h1', {ns: 'product-detail', productName: t(product.name, {ns: 'product-list'})})}</h1>
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 面包屑导航 */}
@@ -87,17 +84,17 @@ export default function ProductDetail({ product }) {
             <ol className="flex space-x-2">
               <li>
                 <Link href="/" className="hover:text-blue-600">
-                  {t('home')}
+                  {t('home', {ns: 'common'})}
                 </Link>
               </li>
               <li>/</li>
               <li>
                 <Link href="/products" className="hover:text-blue-600">
-                  {t('products')}
+                  {t('products', {ns: 'common'})}
                 </Link>
               </li>
               <li>/</li>
-              <li className="text-gray-900">{product.name}</li>
+              <li className="text-gray-900">{t(product.name, {ns: 'product-list'})}</li>
             </ol>
           </nav>
 
@@ -106,20 +103,21 @@ export default function ProductDetail({ product }) {
             {/* 左侧：图片和视频 */}
             <div>
               {/* 主图 */}
-              <div className="relative w-full aspect-square mb-4 rounded-lg overflow-hidden shadow-md">
+              <div className="w-full mb-4 rounded-lg overflow-hidden shadow-md">
                 <Image
                   src={selectedImage}
                   alt={`${product.name} main image`}
-                  fill
-                  className="object-cover"
-                  loading="eager"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  width={600} // 明确宽度
+                  height={600} // 明确高度，假设图片接近正方形
+                  className="w-full h-auto object-contain" // 使用 object-contain 确保完整显示
+                  priority // 首屏关键图片
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                 />
               </div>
 
               {/* 缩略图 */}
               <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
-                {product.images.map((img, index) => (
+                {product.images.slice(0, 5).map((img, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedImage(img)}
@@ -160,44 +158,14 @@ export default function ProductDetail({ product }) {
 
             {/* 右侧：产品信息 */}
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                {product.name}
-              </h1>
-              <p className="text-sm text-gray-600 mb-2">
-                {t('category')}: {product.category[0]}
-              </p>
-              {/* <p className="text-gray-700 mb-6">{product.description}</p> */}
-
-              {/* CTA 按钮 */}
-              <Link
-                href="/contact"
-                className="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition-colors"
-              >
-                {t('contact_us')}
-              </Link>
-
-              {/* Schema.org 结构化数据 */}
-              <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{
-                  __html: JSON.stringify({
-                    '@context': 'https://schema.org',
-                    '@type': 'Product',
-                    name: product.name,
-                    image: product.images[0],
-                    // description: product.description,
-                    // category: product.category,
-                    brand: {
-                      '@type': 'Brand',
-                      name: 'Your Factory',
-                    },
-                  }),
-                }}
-              />
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                {t(product.name, {ns: 'product-list'})}
+              </h2>
             </div>
           </div>
         </div>
       </div>
+      <ContactUs />
       <Footer />
     </>
   );

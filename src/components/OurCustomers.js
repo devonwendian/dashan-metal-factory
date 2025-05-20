@@ -1,10 +1,11 @@
-// components/ClientShowcase.jsx
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 
 export default function ClientShowcase() {
+  const { t } = useTranslation('home');
   return (
     <section
-      className="py-12 bg-gray-50"
+      className="py-8 bg-gray-50"
       aria-labelledby="client-showcase-title"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -13,7 +14,7 @@ export default function ClientShowcase() {
           id="client-showcase-title"
           className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-8"
         >
-          Our Trusted Partners
+          {t('Our Customers')}
         </h2>
 
         {/* 客户图标展示区域 */}
@@ -26,17 +27,9 @@ export default function ClientShowcase() {
             className="w-full h-auto object-contain"
             loading="lazy" // 懒加载优化性能
             sizes="100vw" // 简化为全宽图片
-            // sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px" // 响应式图片尺寸
             quality={80}
-            // priority={false} // 非首屏内容，延迟加载
           />
         </div>
-
-        {/* 可选的描述文本，增强 SEO */}
-        <p className="mt-6 text-center text-gray-600 text-lg">
-          We proudly collaborate with industry-leading companies worldwide to
-          deliver exceptional solutions.
-        </p>
       </div>
     </section>
   );

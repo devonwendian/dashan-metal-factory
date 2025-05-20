@@ -4,29 +4,36 @@ import Footer from '@/components/Footer';
 import BannerCarousel from '@/components/BannerCarousel';
 import MainProducts from '@/components/MainProducts';
 import LargeMetalProducts from '@/components/LargeMetalProducts';
-import CraftVideos from '@/components/CraftVideos';
+import ManufacturingProcessesVideos from '@/components/ManufacturingProcessesVideos';
 import FactoryIntro from '@/components/FactoryIntro';
-import WorkshopAreas from '@/components/WorkshopAreas2';
+import WorkshopAreas from '@/components/WorkshopAreas';
 import OurCustomers from '@/components/OurCustomers';
 import ContactUs from '@/components/ContactUs';
+import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 
 export default function Home() {
-  const { t } = useTranslation('common');
-
+  const { t } = useTranslation('home');
   return (
     <>
+      <Head>
+        <title>{t('title')}</title>
+        <meta name="description" content={t('description')} />
+        <link rel="alternate" hreflang="zh" href="https://dsmetalstamping.com/zh" />
+        <link rel="alternate" hreflang="en" href="https://dsmetalstamping.com" />
+        <link rel="alternate" hreflang="x-default" href="https://dsmetalstamping.com" />
+      </Head>
       <Header />
       <main className="text-center">
+        <h1 className="sr-only">{t('home_h1')}</h1>
         <BannerCarousel />
         <MainProducts />
         <LargeMetalProducts />
-        <CraftVideos />
+        <ManufacturingProcessesVideos />
         <FactoryIntro />
         <WorkshopAreas />
         <OurCustomers />
         <ContactUs />
-        {/* <h1 className="text-3xl font-bold mb-4">{t('welcome')}</h1> */}
       </main>
       <Footer />
     </>
