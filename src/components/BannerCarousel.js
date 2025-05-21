@@ -116,8 +116,8 @@ const banners = [
             fill
             sizes="100vw"
             className="object-cover"
-            priority={index === 0}
-            loading={index === 0 ? undefined : 'lazy'}
+            // priority={index === 0}
+            // loading={index === 0 ? undefined : 'lazy'}
           />
 <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-start">
   <div className="text-left text-white px-6 md:px-12 w-full max-w-4xl mx-auto">
