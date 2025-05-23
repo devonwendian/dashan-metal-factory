@@ -3,49 +3,49 @@ import { useTranslation } from 'next-i18next';
 
 const WorkshopAreas = () => {
   const { t } = useTranslation('home');
-// 加工区域数据（可替换为 API 或 CMS 数据）
-const areas = [
-  {
-    id: 1,
-    title: t('Deep Drawing Area'),
-    description: t('Maximum Processing Length: 2100mm'),
-    images: [
-      '/images/workshop-areas/deep-drawing-1.jpeg',
-      '/images/workshop-areas/deep-drawing-2.jpeg',
-    ],
-  },
-  {
-    id: 2,
-    title: t('CNC Spinning Area'),
-    description: t('Maximum Processing Diameter: 1800mm'),
-    images: [
-      '/images/workshop-areas/cnc-spinning-1.jpeg',
-      '/images/workshop-areas/cnc-spinning-2.jpeg',
-    ],
-  },
-  {
-    id: 3,
-    title: t('Stamping Area'),
-    images: [
-      '/images/workshop-areas/stamping-area-1.jpeg',
-      '/images/workshop-areas/stamping-area-2.jpeg',
-    ],
-  },
-  {
-    id: 4,
-    title: t('Manual Spinning Area'),
-    images: [
-      '/images/workshop-areas/manual-spinning.jpeg',
-    ],
-  },
-  {
-    id: 5,
-    title: t('Punching Area'),
-    images: [
-      '/images/workshop-areas/punching-area.jpeg',
-    ],
-  },
-];
+  // 加工区域数据（可替换为 API 或 CMS 数据）
+  const areas = [
+    {
+      id: 1,
+      title: t('Deep Drawing Area'),
+      description: t('Maximum Processing Length: 2100mm'),
+      images: [
+        '/images/workshop-areas/deep-drawing-1.jpeg',
+        '/images/workshop-areas/deep-drawing-2.jpeg',
+      ],
+    },
+    {
+      id: 2,
+      title: t('CNC Spinning Area'),
+      description: t('Maximum Processing Diameter: 1800mm'),
+      images: [
+        '/images/workshop-areas/cnc-spinning-1.jpeg',
+        '/images/workshop-areas/cnc-spinning-2.jpeg',
+      ],
+    },
+    {
+      id: 3,
+      title: t('Stamping Area'),
+      images: [
+        '/images/workshop-areas/stamping-area-1.jpeg',
+        '/images/workshop-areas/stamping-area-2.jpeg',
+      ],
+    },
+    {
+      id: 4,
+      title: t('Manual Spinning Area'),
+      images: [
+        '/images/workshop-areas/manual-spinning.jpeg',
+      ],
+    },
+    {
+      id: 5,
+      title: t('Punching Area'),
+      images: [
+        '/images/workshop-areas/punching-area.jpeg',
+      ],
+    },
+  ];
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
@@ -81,13 +81,15 @@ const areas = [
                 ))}
               </div>
 
-              {/* 右侧文字区域，垂直居中对齐 */}
-              <div className="md:w-1/3 p-6 flex items-center">
-                <div>
-                  <h3 className="text-2xl font-semibold text-gray-800 mb-2">
+              {/* 右侧文字区域，垂直居中，水平左对齐 */}
+              <div className="md:w-1/3 p-6 flex items-center justify-start">
+                <div className="w-full text-left">
+                  <h3 className="text-2xl font-semibold text-gray-800 mb-2 m-0">
                     {area.title}
                   </h3>
-                  {area.description && <p className="text-gray-600 leading-relaxed">{area.description}</p>}
+                  {area.description && (
+                    <p className="text-gray-600 leading-relaxed m-0">{area.description}</p>
+                  )}
                 </div>
               </div>
             </article>
