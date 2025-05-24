@@ -3,8 +3,8 @@ import { useTranslation } from 'next-i18next';
 
 const ManufacturingProcessesVideos = () => {
   const { t, i18n } = useTranslation('home');
-  const isChinaUser = i18n.language.includes('zh');
-  
+  const [useBilibili, setUseBilibili] = useState(i18n.language.includes('zh'));
+
   const videos = [
     {
       title: t('Large-Scale Metal Deep Drawing Process'),
@@ -36,6 +36,10 @@ const ManufacturingProcessesVideos = () => {
     },
   ];
 
+  const toggleVideoSource = () => {
+    setUseBilibili(!useBilibili);
+  };
+
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
@@ -44,15 +48,24 @@ const ManufacturingProcessesVideos = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {videos.map((video) => (
-            <VideoCard key={video.title} video={video} isChinaUser={isChinaUser} />
+            <VideoCard key={video.title} video={video} useBilibili={useBilibili} />
           ))}
+        </div>
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={toggleVideoSource}
+            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200"
+            aria-label={t(useBilibili ? 'Switch to YouTube' : 'Switch to Bilibili')}
+          >
+            {t(useBilibili ? t('Watch on YouTube') : t('Watch on Bilibili'))}
+          </button>
         </div>
       </div>
     </section>
   );
 };
 
-const VideoCard = ({ video, isChinaUser }) => {
+const VideoCard = ({ video, useBilibili }) => {
   const [isVisible, setIsVisible] = useState(false);
   const videoRef = useRef(null);
 
@@ -78,7 +91,7 @@ const VideoCard = ({ video, isChinaUser }) => {
       <figure className="relative w-full h-0 pb-[56.25%]">
         {isVisible ? (
           <iframe
-            src={isChinaUser ? video.bilibiliEmbedUrl : video.youtubeUrl}
+            src={useBilibili ? video.bilibiliEmbedUrl : video.youtubeUrl}
             title={video.title}
             className="absolute top-0 left-0 w-full h-full"
             allowFullScreen
