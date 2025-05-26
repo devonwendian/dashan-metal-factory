@@ -31,6 +31,7 @@ const banners = [
     title: t('CNC Spinning Machines'),
     description: [
       t('Complex Metal Forming'),
+      t('Supports Maximum Processing Diameter of 1800mm'),
     ],
   },
   {
@@ -40,6 +41,7 @@ const banners = [
     title: t('Hydraulic Presses'),
     description: [
       t('Self-Owned'),
+      t('Supports Maximum Processing Length of 2100mm'),
     ],
   },
 ];
@@ -127,14 +129,14 @@ const banners = [
       <div className="w-20 h-1 bg-yellow-500 mt-2"></div>
     </h2>
     {/* 描述居中，优化圆点和间距 */}
-    <div className="text-base md:text-lg space-y-6 max-w-xl mx-auto animate-fadeIn animate-delay-200">
+    <div className="text-xl md:text-2xl space-y-6 max-w-xl mx-auto animate-fadeIn animate-delay-200">
       {banner.description.map((desc, i) => (
-        <p key={i} className="flex items-center justify-start">
+        <h2 key={i} className="flex items-center justify-start">
           <span className="w-3 h-3 bg-yellow-500 rounded-full mr-4"></span>
           <span>
             {desc}
           </span>
-        </p>
+        </h2>
       ))}
     </div>
   </div>

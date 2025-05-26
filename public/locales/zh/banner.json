@@ -6,5 +6,7 @@
   "ISO9001": "ISO 9001 认证",
   "Hydraulic Presses": "200-1000吨油压机",
   "CNC Spinning Machines": "数台大型数控旋压机",
-  "Complex Metal Forming": "支持高难度金属成形加工"
+  "Complex Metal Forming": "支持高难度金属成形加工",
+  "Supports Maximum Processing Length of 2100mm": "支持最大加工长度2100mm",
+  "Supports Maximum Processing Diameter of 1800mm": "支持最大加工直径1800mm"
 }
