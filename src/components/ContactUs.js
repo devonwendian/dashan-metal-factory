@@ -11,7 +11,7 @@ export default function ContactUs() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-32 right-6 z-50">
       {/* 浮窗按钮 */}
       <button
         onClick={toggleContact}
