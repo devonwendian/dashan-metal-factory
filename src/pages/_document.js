@@ -23,6 +23,13 @@ export default function Document() {
             `,
           }}
         />
+        <script
+          type="text/javascript"
+          async
+          src="https://embed.tawk.to/68386c24ff68c4190ac35a80/1ise6cs8i"
+          charSet="UTF-8"
+          crossOrigin="*"
+        ></script>
       </body>
     </Html>
   );

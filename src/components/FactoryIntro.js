@@ -3,7 +3,14 @@ import { useTranslation, Trans } from 'next-i18next';
 
 const FactoryIntro = () => {
   // 多语言支持
-  const { t } = useTranslation('home');
+  const { t, i18n } = useTranslation('home');
+
+  // 动态选择证书图片基于语言
+  const certificateImages = {
+    en: '/images/factory-intro/factory-certification.jpg',
+    zh: '/images/factory-intro/factory-certification-zh.jpg',
+  };
+  const certificateImageSrc = certificateImages[i18n.language] || certificateImages.en; // 回退到英文版本
 
   return (
     <section className="py-8 bg-gradient-to-b from-gray-50 to-white">
@@ -103,7 +110,7 @@ const FactoryIntro = () => {
             <div className="w-full md:w-1/2 pl-0 md:pl-8">
             <div className="relative w-full aspect-[2481/3509] md:max-w-[400px] mx-auto rounded-xl overflow-hidden shadow-md">
               <Image
-                src="/images/factory-intro/factory-certification.jpg"
+                src={certificateImageSrc}
                 alt={t('timeline_3_image_alt')}
                 fill
                 className="object-contain"

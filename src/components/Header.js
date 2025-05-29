@@ -25,13 +25,13 @@ export default function Header() {
                 width={80}
                 className="rounded"
               />
-              <div
+              <h2
                 role="heading"
                 aria-level="2"
                 className="text-xl md:text-2xl font-semibold whitespace-normal flex-grow mr-4"
               >
                 {t('factory_name')}
-              </div>
+              </h2>
             </div>
             <div className="flex items-center">
               <button
@@ -83,6 +83,12 @@ export default function Header() {
                 >
                   {t('contact')}
                 </Link>
+                {/* <Link
+                  href="/knowledge"
+                  className="block lg:inline hover:text-blue-600 transition py-2 lg:py-0"
+                >
+                  {t('Metal Forming Knowledge')}
+                </Link> */}
                 <LanguageSwitcher />
               </div>
             </div>
