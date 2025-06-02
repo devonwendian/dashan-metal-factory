@@ -1,5 +1,9 @@
+# *
 User-agent: *
 Allow: /
+
+# Host
+Host: https://dsmetalstamping.com
 
 # Sitemaps
 Sitemap: https://dsmetalstamping.com/sitemap.xml

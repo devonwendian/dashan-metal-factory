@@ -83,12 +83,12 @@ export default function Header() {
                 >
                   {t('contact')}
                 </Link>
-                {/* <Link
+                <Link
                   href="/knowledge"
                   className="block lg:inline hover:text-blue-600 transition py-2 lg:py-0"
                 >
                   {t('Metal Forming Knowledge')}
-                </Link> */}
+                </Link>
                 <LanguageSwitcher />
               </div>
             </div>

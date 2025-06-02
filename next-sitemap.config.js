@@ -18,7 +18,7 @@ module.exports = {
       priority = 1.0; // 最高优先级
     }
     // 产品页面
-    else if (path.includes('/products')) {
+    else if (path.includes('/products') || path.includes('/knowledge')) {
       changefreq = 'weekly';
       priority = 0.9; // 中等优先级
     }
