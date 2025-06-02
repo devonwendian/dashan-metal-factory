@@ -15,6 +15,9 @@ export default function KnowledgeList({ }) {
       <Head>
         <title>{t('title', {ns: 'knowledge'})}</title>
         <meta name="description" content={t('description')} />
+        <link rel="alternate" hreflang="zh" href="https://dsmetalstamping.com/zh/knowledge" />
+        <link rel="alternate" hreflang="en" href="https://dsmetalstamping.com/knowledge" />
+        <link rel="alternate" hreflang="x-default" href="https://dsmetalstamping.com/knowledge" />
       </Head>
       <Header />
       <section className="container mx-auto py-12 px-6">

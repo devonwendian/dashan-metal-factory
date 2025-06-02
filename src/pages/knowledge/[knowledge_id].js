@@ -6,6 +6,8 @@ import knowledgeListData from '@/data/knowledge-list-data';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
+const baseUrl = 'https://dsmetalstamping.com';
+
 export default function KnowledgeDetail({ knowledge }) {
   const { t, i18n } = useTranslation('common');
 
@@ -14,6 +16,21 @@ export default function KnowledgeDetail({ knowledge }) {
       <Head>
         <title>{knowledge.title[i18n.language]}</title>
         <meta name="description" content={knowledge.description[i18n.language]} />
+        <link 
+          rel="alternate" 
+          hreflang="zh" 
+          href={`${baseUrl}/zh/knowledge/${knowledge.knowledge_id}`} 
+        />
+        <link 
+          rel="alternate" 
+          hreflang="en" 
+          href={`${baseUrl}/knowledge/${knowledge.knowledge_id}`} 
+        />
+        <link 
+          rel="alternate" 
+          hreflang="x-default"
+          href={`${baseUrl}/products/${knowledge.knowledge_id}`} 
+        />
       </Head>
       <Header />
       <article className="container mx-auto px-4 sm:px-6 py-12">
