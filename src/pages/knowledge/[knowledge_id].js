@@ -29,7 +29,7 @@ export default function KnowledgeDetail({ knowledge }) {
         <link 
           rel="alternate" 
           hreflang="x-default"
-          href={`${baseUrl}/products/${knowledge.knowledge_id}`} 
+          href={`${baseUrl}/knowledge/${knowledge.knowledge_id}`} 
         />
       </Head>
       <Header />
