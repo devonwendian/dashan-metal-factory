@@ -1,4 +1,103 @@
 const knowledgeListData = [
+{
+  "knowledge_id": "large-scale-metal-deep-drawing",
+  "title": {
+    "en": "Large-Scale Metal Deep Drawing: Precision in Custom Metal Processing",
+    "zh": "大型金属拉伸：金属定制加工的精度"
+  },
+  "description": {
+    "en": "Explore the advanced techniques of large-scale metal deep drawing, a key process in metal custom processing and hardware processing for creating high-precision, durable components for global industries.",
+    "zh": "了解大型金属拉伸的先进技术，这是金属定制加工和五金加工中的关键工艺，用于为全球行业制造高精度、耐用的部件。"
+  },
+  "content": {
+    "en": `
+      <h2 class="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-6">What is Large-Scale Metal Deep Drawing?</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">Large-scale metal deep drawing is an advanced manufacturing process that transforms large, flat metal sheets into complex, high-precision components using specialized dies and presses. As a cornerstone of <strong>metal custom processing</strong> and <strong>hardware processing</strong>, this technique is ideal for producing oversized parts with seamless finishes, serving industries such as automotive, aerospace, and industrial equipment manufacturing.</p>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-6">The Large-Scale Metal Deep Drawing Process</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">The process begins with a large metal sheet, typically made of steel, aluminum, or stainless steel, placed over a custom-designed die. A high-capacity punch presses the metal into the die, forming intricate shapes without compromising structural integrity. Key factors for success include advanced die engineering, precise force control, and material selection tailored to the component's requirements. This ensures minimal defects like wrinkling or tearing, making it a preferred method in <strong>metal custom processing</strong> for large-scale applications.</p>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-6">Applications of Large-Scale Metal Deep Drawing</h2>
+      <ul class="list-none space-y-2 mb-6">
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>Automotive Industry</strong>: Produces large body panels, chassis components, and fuel tanks with high strength and precision.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>Aerospace</strong>: Creates oversized structural components and engine casings for aircraft.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>Industrial Equipment</strong>: Manufactures robust containers, pressure vessels, and machinery housings for heavy-duty applications.</span>
+        </li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-6">Advantages of Large-Scale Metal Deep Drawing</h2>
+      <ul class="list-none space-y-2 mb-6">
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>High Precision</strong>: Achieves tight tolerances for complex, oversized components, ensuring quality in <strong>hardware processing</strong>.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>Material Efficiency</strong>: Optimizes large metal sheets, reducing waste and costs in <strong>metal custom processing</strong>.</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>Durability</strong>: Enhances component strength through work hardening, ideal for demanding applications.</span>
+        </li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-6">Why Choose Our Metal Custom Processing Services?</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">Our factory specializes in large-scale metal deep drawing, offering tailored solutions for global clients. With state-of-the-art equipment and expertise in <strong>metal custom processing</strong> and <strong>hardware processing</strong>, we deliver high-quality, durable components that meet stringent industry standards. Contact us to learn how our advanced manufacturing capabilities can support your next project.</p>
+    `,
+    "zh": `
+      <h2 class="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-6">什么是大型金属拉伸？</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">大型金属拉伸是一种先进的制造工艺，通过使用专用模具和冲压机将大型金属板材转化为复杂的高精度部件。作为<strong>金属定制加工</strong>和<strong>五金加工</strong>的基石，该技术非常适合生产无缝表面的大型部件，服务于汽车、航空航天和工业设备制造等行业。</p>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-6">大型金属拉伸工艺</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">该工艺从一块大型金属板开始，通常使用钢、铝或不锈钢，放置在定制设计的模具上方。高容量冲头将金属压制到模具中，形成复杂的形状，同时保持结构完整性。成功的关键因素包括先进的模具工程、精确的力控制以及根据部件要求选择合适的材料。这确保了最小的缺陷，如起皱或撕裂，使其成为<strong>金属定制加工</strong>中大型应用的首选方法。</p>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-6">大型金属拉伸的应用</h2>
+      <ul class="list-none space-y-2 mb-6">
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>汽车行业</strong>：生产大型车身面板、底盘部件和油箱，具有高强度和精度。</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>航空航天</strong>：制造飞机的超大型结构部件和发动机外壳。</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>工业设备</strong>：生产用于重型应用的坚固容器、压力容器和机械外壳。</span>
+        </li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-6">大型金属拉伸的优势</h2>
+      <ul class="list-none space-y-2 mb-6">
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>高精度</strong>：实现复杂大型部件的严格公差，确保<strong>五金加工</strong>中的质量。</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>材料效率</strong>：优化大型金属板材的使用，降低<strong>金属定制加工</strong>中的浪费和成本。</span>
+        </li>
+        <li class="flex items-start">
+          <span class="text-blue-600 mr-2">✓</span>
+          <span class="text-gray-600"><strong>耐用性</strong>：通过加工硬化提升部件强度，适用于苛刻的应用场景。</span>
+        </li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b border-gray-200 pb-2 mb-6">为什么选择我们的金属定制加工服务？</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">我们的工厂专注于大型金属拉伸，为全球客户提供定制化解决方案。凭借先进的设备和在<strong>金属定制加工</strong>及<strong>五金加工</strong>方面的专业知识，我们提供符合严格行业标准的高质量、耐用部件。联系我们，了解我们的先进制造能力如何支持您的下一个项目。</p>
+    `
+  },
+  "date": "2025-06-20",
+ "image": "/images/workshop-areas/deep-drawing-1.jpeg"
+},
   {
     "knowledge_id": "metal-deep-drawing-fundamentals",
     "title": { 
