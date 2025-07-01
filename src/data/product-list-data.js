@@ -257,6 +257,20 @@ const productListData = {
   ],
   "metalDeepDrawing": [
     {
+      index: 'product198',
+      product_id: 'metal-stamping-product198',
+      name: 'Stainless Steel Cover Parts Stamping Processing',
+      category: ['Metal Stamping Parts', 'Metal Deep Drawing Parts'],
+      images: [
+        '/images/products/metal-deep-drawing/product48/metal-stamping-1.jpeg',
+        '/images/products/metal-deep-drawing/product48/metal-stamping-2.jpeg',
+        '/images/products/metal-deep-drawing/product48/metal-stamping-3.jpeg',
+        '/images/products/metal-deep-drawing/product48/metal-stamping-4.jpeg',
+        '/images/products/metal-deep-drawing/product48/metal-stamping-5.jpeg',
+      ],
+      video: "",
+    },
+    {
       index: 'product48',
       product_id: 'metal-deep-drawing-product48',
       name: 'Stainless Steel Casing Stamping Parts',
