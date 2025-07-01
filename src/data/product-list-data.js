@@ -257,6 +257,21 @@ const productListData = {
   ],
   "metalDeepDrawing": [
     {
+      index: 'product158',
+      product_id: 'metal-stamping-product158',
+      name: 'Machinery Parts Bucket Stamping Processing',
+      category: ['Metal Stamping Parts', 'Metal Deep Drawing Parts'],
+      images: [
+        '/images/products/metal-deep-drawing/product158/metal-stamping-1.jpeg',
+        '/images/products/metal-deep-drawing/product158/metal-stamping-2.jpeg',
+        '/images/products/metal-deep-drawing/product158/metal-stamping-3.jpeg',
+        '/images/products/metal-deep-drawing/product158/metal-stamping-4.jpeg',
+        '/images/products/metal-deep-drawing/product158/metal-stamping-5.jpeg',
+         '/images/products/metal-deep-drawing/product158/metal-stamping-head.jpeg',
+      ],
+      video: "",
+    },
+    {
       index: 'product198',
       product_id: 'metal-stamping-product198',
       name: 'Stainless Steel Cover Parts Stamping Processing',
