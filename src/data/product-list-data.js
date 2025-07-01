@@ -267,7 +267,7 @@ const productListData = {
         '/images/products/metal-deep-drawing/product158/metal-stamping-3.jpeg',
         '/images/products/metal-deep-drawing/product158/metal-stamping-4.jpeg',
         '/images/products/metal-deep-drawing/product158/metal-stamping-5.jpeg',
-         '/images/products/metal-deep-drawing/product158/metal-stamping-head.jpeg',
+         '/images/products/metal-deep-drawing/product158/metal-stamping-head.jpg',
       ],
       video: "",
     },
