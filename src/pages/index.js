@@ -13,12 +13,25 @@ import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 
 export default function Home() {
-  const { t } = useTranslation('home');
+  const { t, i18n } = useTranslation('home');
+
+
+  const siteBase = 'https://dsmetalstamping.com';
+
+  const locales = {
+    en: '',
+    zh: '/zh',
+  };
+
+  const canonicalUrl = siteBase + (i18n.language === 'en' ? '' : locales[i18n.language]);
+  
+
   return (
     <>
       <Head>
         <title>{t('title')}</title>
         <meta name="description" content={t('description')} />
+        <link rel="canonical" href={canonicalUrl} />
         <link rel="alternate" hreflang="zh" href="https://dsmetalstamping.com/zh" />
         <link rel="alternate" hreflang="en" href="https://dsmetalstamping.com" />
         <link rel="alternate" hreflang="x-default" href="https://dsmetalstamping.com" />
