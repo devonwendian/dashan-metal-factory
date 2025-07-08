@@ -7,7 +7,15 @@ import Image from 'next/image';
 const factoryImage = '/images/factory-intro/factory-gate.jpg';
 
 export default function AboutPage() {
-  const { t } = useTranslation('about');
+  const { t, i18n } = useTranslation('about');
+
+  const siteBase = 'https://dsmetalstamping.com';
+
+  const locales = {
+    zh: '/zh/about',
+  };
+
+  const canonicalUrl = siteBase + (locales[i18n.language] ? locales[i18n.language] : '/about');
 
   return (
     <>
@@ -15,6 +23,7 @@ export default function AboutPage() {
         <title>{t('about_page_title')}</title>
         <meta name="description" content={t('about_page_description')} />
         <meta name="keywords" content={t('about_page_keywords')} />
+        <link rel="canonical" href={canonicalUrl} />
         <link rel="alternate" hreflang="zh" href="https://dsmetalstamping.com/zh/about" />
         <link rel="alternate" hreflang="en" href="https://dsmetalstamping.com/about" />
         <link rel="alternate" hreflang="x-default" href="https://dsmetalstamping.com/about" />

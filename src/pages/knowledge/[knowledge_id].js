@@ -11,11 +11,14 @@ const baseUrl = 'https://dsmetalstamping.com';
 export default function KnowledgeDetail({ knowledge }) {
   const { t, i18n } = useTranslation('common');
 
+  const canonicalUrl = baseUrl + (i18n.language === 'zh' ? `/zh/knowledge/${knowledge.knowledge_id}` : `/knowledge/${knowledge.knowledge_id}`);
+
   return (
     <>
       <Head>
         <title>{knowledge.title[i18n.language]}</title>
         <meta name="description" content={knowledge.description[i18n.language]} />
+        <link rel="canonical" href={canonicalUrl} />
         <link 
           rel="alternate" 
           hreflang="zh" 

@@ -22,7 +22,7 @@ export async function getStaticProps({ locale }) {
 }
 
 export default function ProductsPage() {
-  const { t } = useTranslation(['common', 'product-list']);
+  const { t, i18n } = useTranslation(['common', 'product-list']);
   const router = useRouter();
   const { locale } = router;
   const currentPage = parseInt(router.query.page || '1', 10);
@@ -55,11 +55,18 @@ export default function ProductsPage() {
 
   const baseUrl = 'https://dsmetalstamping.com'; // 替换为实际域名
 
+  const locales = {
+    zh: '/zh/products',
+  };
+
+  const canonicalUrl = baseUrl + (locales[i18n.language] ? locales[i18n.language] : '/products');
+
   return (
     <>
       <Head>
         <title>{t('title', {ns: 'product-list'})}</title>
         <meta name="description" content={t('description', {ns: 'product-list'})} />
+        <link rel="canonical" href={canonicalUrl} />
         <link rel="alternate" hreflang="zh" href="https://dsmetalstamping.com/zh/products" />
         <link rel="alternate" hreflang="en" href="https://dsmetalstamping.com/products" />
         <link rel="alternate" hreflang="x-default" href="https://dsmetalstamping.com/products" />

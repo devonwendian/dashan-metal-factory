@@ -46,7 +46,7 @@ export async function getStaticProps({ params, locale }) {
 }
 
 export default function ProductDetail({ product }) {
-  const { t } = useTranslation(['common', 'product-detail', 'product-list']);
+  const { t, i18n } = useTranslation(['common', 'product-detail', 'product-list']);
   const router = useRouter();
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
 
@@ -54,11 +54,15 @@ export default function ProductDetail({ product }) {
     return <div className="text-center py-12">{t('product_not_found')}</div>;
   }
   const baseUrl = 'https://dsmetalstamping.com';
+
+  const canonicalUrl = baseUrl + (i18n.language === 'zh' ? `/zh/products/${product.product_id}` : `/products/${product.product_id}`);
+
   return (
     <>
       <Head>
         <title>{t('title', {ns: 'product-detail', productName: t(product.name, {ns: 'product-list'})})}</title>
         <meta name="description" content={t('description', {ns: 'product-detail', productName: t(product.name, {ns: 'product-list'})})} />
+        <link rel="canonical" href={canonicalUrl} />
         <link 
           rel="alternate" 
           hreflang="zh" 

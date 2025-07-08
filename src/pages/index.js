@@ -19,13 +19,11 @@ export default function Home() {
   const siteBase = 'https://dsmetalstamping.com';
 
   const locales = {
-    en: '',
     zh: '/zh',
   };
 
-  const canonicalUrl = siteBase + (i18n.language === 'en' ? '' : locales[i18n.language]);
+  const canonicalUrl = siteBase + (locales[i18n.language] ? locales[i18n.language] : '');
   
-
   return (
     <>
       <Head>
