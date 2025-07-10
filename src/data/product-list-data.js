@@ -254,6 +254,34 @@ const productListData = {
       ],
       video: "",
     },
+    {
+      index: 'product197',
+      product_id: 'metal-spinning-product197',
+      name: 'CNC Spinning Processing for Brass Salad Bowl Parts',
+      category: ['Metal Spinning Parts'],
+      images: [
+        '/images/products/metal-spinning/product197/metal-spinning-1.jpeg',
+        '/images/products/metal-spinning/product197/metal-spinning-2.jpeg',
+        '/images/products/metal-spinning/product197/metal-spinning-3.jpeg',
+        '/images/products/metal-spinning/product197/metal-spinning-4.jpeg',
+        '/images/products/metal-spinning/product197/metal-spinning-5.jpeg',
+      ],
+      video: "",
+    },
+    {
+      index: 'product13',
+      product_id: 'metal-spinning-product13',
+      name: 'CNC Spinning Processing for Aluminum Tea Canister Parts',
+      category: ['Metal Spinning Parts'],
+      images: [
+        '/images/products/metal-spinning/product13/metal-spinning-1.jpeg',
+        '/images/products/metal-spinning/product13/metal-spinning-2.jpg',
+        '/images/products/metal-spinning/product13/metal-spinning-3.jpeg',
+        '/images/products/metal-spinning/product13/metal-spinning-4.jpeg',
+        '/images/products/metal-spinning/product13/metal-spinning-5.jpeg',
+      ],
+      video: "",
+    },
   ],
   "metalDeepDrawing": [
     {
