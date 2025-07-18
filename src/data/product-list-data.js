@@ -282,6 +282,20 @@ const productListData = {
       ],
       video: "",
     },
+    {
+      index: 'product69',
+      product_id: 'metal-spinning-product69',
+      name: 'Manufacturer OEM Large Aluminum CNC Spinning Ice Bucket Parts',
+      category: ['Metal Spinning Parts'],
+      images: [
+        '/images/products/metal-spinning/product69/metal-spinning-1.jpeg',
+        '/images/products/metal-spinning/product69/metal-spinning-2.jpeg',
+        '/images/products/metal-spinning/product69/metal-spinning-3.jpeg',
+        '/images/products/metal-spinning/product69/metal-spinning-4.jpeg',
+        '/images/products/metal-spinning/product69/metal-spinning-5.jpeg',
+      ],
+      video: "",
+    },
   ],
   "metalDeepDrawing": [
     {
@@ -427,6 +441,20 @@ const productListData = {
         '/images/products/metal-deep-drawing/product190/metal-deep-drawing-3.jpeg',
         '/images/products/metal-deep-drawing/product190/metal-deep-drawing-4.jpeg',
         '/images/products/metal-deep-drawing/product190/metal-deep-drawing-5.jpeg',
+      ],
+      video: "",
+    },
+    {
+      index: 'product203',
+      product_id: 'metal-stamping-product203',
+      name: 'Source Factory OEM Aluminum Rectangular Strip Hotel Floor Drain Parts Stamping Processing',
+      category: ['Metal Deep Drawing Parts'],
+      images: [
+        '/images/products/metal-deep-drawing/product203/metal-stamping-1.jpeg',
+        '/images/products/metal-deep-drawing/product203/metal-stamping-2.jpeg',
+        '/images/products/metal-deep-drawing/product203/metal-stamping-3.jpeg',
+        '/images/products/metal-deep-drawing/product203/metal-stamping-4.jpeg',
+        '/images/products/metal-deep-drawing/product203/metal-stamping-5.jpeg',
       ],
       video: "",
     },
