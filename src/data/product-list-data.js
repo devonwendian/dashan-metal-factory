@@ -299,6 +299,34 @@ const productListData = {
   ],
   "metalDeepDrawing": [
     {
+      index: 'product204',
+      product_id: 'metal-deep-drawing-product204',
+      name: 'OEM Factory Tractor Iron Side Panels Large Deep Drawing Process',
+      category: ['Metal Stamping Parts', 'Metal Deep Drawing Parts'],
+      images: [
+        '/images/products/metal-deep-drawing/product204/metal-deep-drawing-1.jpeg',
+        '/images/products/metal-deep-drawing/product204/metal-deep-drawing-2.jpeg',
+        '/images/products/metal-deep-drawing/product204/metal-deep-drawing-3.jpeg',
+        '/images/products/metal-deep-drawing/product204/metal-deep-drawing-4.jpeg',
+        '/images/products/metal-deep-drawing/product204/metal-deep-drawing-5.jpeg',
+      ],
+      video: "",
+    },
+    {
+      index: 'product193',
+      product_id: 'metal-stamping-product193',
+      name: 'Factory Custom Ceiling Plate Stamping Process for Lighting Accessories',
+      category: ['Metal Stamping Parts', 'Metal Deep Drawing Parts'],
+      images: [
+        '/images/products/metal-deep-drawing/product193/metal-stamping-1.jpeg',
+        '/images/products/metal-deep-drawing/product193/metal-stamping-2.jpeg',
+        '/images/products/metal-deep-drawing/product193/metal-stamping-3.jpeg',
+        '/images/products/metal-deep-drawing/product193/metal-stamping-4.jpeg',
+        '/images/products/metal-deep-drawing/product193/metal-stamping-5.jpeg',
+      ],
+      video: "",
+    },
+    {
       index: 'product158',
       product_id: 'metal-stamping-product158',
       name: 'Machinery Parts Bucket Stamping Processing',
