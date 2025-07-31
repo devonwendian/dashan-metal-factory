@@ -1,6 +1,20 @@
 const productListData = {
   "metalSpinning": [
     {
+      index: 'product202',
+      product_id: 'metal-spinning-product202',
+      name: 'Custom Aluminum Alloy Horn-shaped Parts CNC Ppinning Processing ',
+      category: ['Metal Spinning Parts'],
+      images: [
+        '/images/products/metal-spinning/product202/metal-spinning-1.jpeg',
+        '/images/products/metal-spinning/product202/metal-spinning-2.jpeg',
+        '/images/products/metal-spinning/product202/metal-spinning-3.jpeg',
+        '/images/products/metal-spinning/product202/metal-spinning-4.jpeg',
+        '/images/products/metal-spinning/product202/metal-spinning-5.jpeg',
+      ],
+      video: "",
+    },
+    {
       index: 'product40',
       product_id: 'metal-spinning-product40',
       name: 'Red Copper Distiller Pots Spinning Parts',
@@ -483,6 +497,21 @@ const productListData = {
         '/images/products/metal-deep-drawing/product203/metal-stamping-3.jpeg',
         '/images/products/metal-deep-drawing/product203/metal-stamping-4.jpeg',
         '/images/products/metal-deep-drawing/product203/metal-stamping-5.jpeg',
+      ],
+      video: "",
+    },
+    {
+      index: 'product187',
+      product_id: 'metal-stamping-product187',
+      name: 'Custom Stainless Steel Barrel Parts Stamping Processing',
+      category: ['Metal Deep Drawing Parts'],
+      images: [
+        '/images/products/metal-deep-drawing/product187/metal-stamping-1.jpeg',
+        '/images/products/metal-deep-drawing/product187/metal-stamping-2.jpeg',
+        '/images/products/metal-deep-drawing/product187/metal-stamping-3.jpeg',
+        '/images/products/metal-deep-drawing/product187/metal-stamping-4.jpeg',
+        '/images/products/metal-deep-drawing/product187/metal-stamping-5.jpeg',
+        '/images/products/metal-deep-drawing/product187/metal-stamping-head.jpg',
       ],
       video: "",
     },
