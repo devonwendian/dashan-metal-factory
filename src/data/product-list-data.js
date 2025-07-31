@@ -3,7 +3,7 @@ const productListData = {
     {
       index: 'product202',
       product_id: 'metal-spinning-product202',
-      name: 'Custom Aluminum Alloy Horn-shaped Parts CNC Ppinning Processing ',
+      name: 'Custom Aluminum Alloy Horn-shaped Parts CNC Spinning Processing',
       category: ['Metal Spinning Parts'],
       images: [
         '/images/products/metal-spinning/product202/metal-spinning-1.jpeg',
