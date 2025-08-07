@@ -1,6 +1,20 @@
 const productListData = {
   "metalSpinning": [
     {
+      index: 'product191',
+      product_id: 'metal-spinning-product191',
+      name: 'Manufacturer Custom Aluminum Lampshade CNC Spinning Processing',
+      category: ['Metal Spinning Parts'],
+      images: [
+        '/images/products/metal-spinning/product191/metal-spinning-1.jpeg',
+        '/images/products/metal-spinning/product191/metal-spinning-2.jpeg',
+        '/images/products/metal-spinning/product191/metal-spinning-3.jpeg',
+        '/images/products/metal-spinning/product191/metal-spinning-4.jpeg',
+        '/images/products/metal-spinning/product191/metal-spinning-5.jpeg',
+      ],
+      video: "",
+    },
+    {
       index: 'product202',
       product_id: 'metal-spinning-product202',
       name: 'Custom Aluminum Alloy Horn-shaped Parts CNC Spinning Processing',
