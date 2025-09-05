@@ -1,4 +1,91 @@
 const knowledgeListData = [
+{
+  "knowledge_id": "large-scale-stamping-process",
+  "title": {
+    "en": "Large-Scale Stamping Process and Challenges",
+    "zh": "大型冲压加工的工艺与难点"
+  },
+  "description": {
+    "en": "Explore the complete process of large-scale stamping and its key challenges, covering material preparation, mold design, defect control, and applications across automotive, aerospace, and industrial equipment industries.",
+    "zh": "深入解析大型冲压加工的完整工艺流程及其技术难点，涵盖材料准备、模具设计、缺陷控制及其在汽车、航空航天和工业设备行业的应用。"
+  },
+  "content": {
+    "en": `
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">Introduction</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">Large-scale stamping has become a core technology in modern manufacturing. By applying immense pressure with high-tonnage presses and specialized dies, it can transform oversized metal sheets into precise, complex components. This article explores the stamping process and the major technical challenges involved.</p>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">Process of Large-Scale Stamping</h2>
+      <ul class="list-disc pl-6 mb-6 text-gray-600">
+        <li><strong>Material Preparation:</strong> Sheets of steel, aluminum, or stainless steel undergo flattening, cleaning, and lubrication to ensure stability.</li>
+        <li><strong>Die Design & Manufacturing:</strong> Large dies are modeled with CAD/CAE and FEA analysis to predict deformation, usually made from high-strength tool steels.</li>
+        <li><strong>Process Planning:</strong> Operations include blanking, drawing, bending, flanging, and trimming, sometimes requiring multiple stages for complex parts.</li>
+        <li><strong>Stamping:</strong> A high-tonnage press deforms the sheet into shape, requiring precise force control and lubrication.</li>
+        <li><strong>Post-Processing:</strong> Deburring, cleaning, and heat treatment improve quality and durability.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">Technical Challenges</h2>
+      <ul class="list-disc pl-6 mb-6 text-gray-600">
+        <li><strong>Spring-back Control:</strong> High-strength materials like stainless steel cause dimensional deviation.</li>
+        <li><strong>Complex Die Manufacturing:</strong> Large dies weigh tens of tons, requiring high accuracy and long lead times.</li>
+        <li><strong>Defects:</strong> Wrinkling, cracking, and burrs must be minimized by optimizing clearance and lubrication.</li>
+        <li><strong>High Equipment Demand:</strong> Thousands of tons of press capacity and specialized handling systems are required.</li>
+        <li><strong>Cost & Lead Time:</strong> High up-front investment is only economical for large-scale production.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">Applications</h2>
+      <ul class="list-disc pl-6 mb-6 text-gray-600">
+        <li><strong>Automotive:</strong> Body panels, chassis components, and fuel tanks.</li>
+        <li><strong>Aerospace:</strong> Wing skins, engine casings, and large structural parts.</li>
+        <li><strong>Rail & Marine:</strong> High-strength covers and frameworks.</li>
+        <li><strong>Industrial Equipment:</strong> Pressure vessels, housings, and heavy-duty enclosures.</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">Future Trends</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">Large-scale stamping is evolving with lightweight alloys, servo presses, CAE-based simulation, and automated production. These innovations help overcome challenges while expanding applications.</p>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">Conclusion</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">As an essential process in modern metal forming, large-scale stamping enables the efficient production of oversized, high-precision parts. By addressing challenges in materials, dies, and processes, manufacturers can achieve greater efficiency, consistency, and competitiveness in global industries.</p>
+    `,
+    "zh": `
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">引言</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">大型冲压加工是现代制造业的核心工艺之一。通过高吨位冲压机和专用模具的巨大压力，可将大尺寸金属板材塑造成复杂而精准的零部件。本文将介绍大型冲压的工艺流程，并重点解析其中的技术难点。</p>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">大型冲压的工艺流程</h2>
+      <ul class="list-disc pl-6 mb-6 text-gray-600">
+        <li><strong>材料准备：</strong>钢板、铝板或不锈钢板需经过矫平、清洗、涂油等前处理，确保稳定性。</li>
+        <li><strong>模具设计与制造：</strong>利用CAD/CAE及有限元分析（FEA）进行模拟，模具通常采用高强度工具钢制造。</li>
+        <li><strong>工序安排：</strong>包括落料、拉伸、弯曲、翻边和修边等工序，复杂零件需多次拉伸或整形。</li>
+        <li><strong>冲压成形：</strong>通过高吨位压力机下压，使板材发生塑性变形，需要精确控制压力、速度和润滑。</li>
+        <li><strong>后续处理：</strong>对零件进行去毛刺、清理和必要的热处理，提高表面质量和力学性能。</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">技术难点</h2>
+      <ul class="list-disc pl-6 mb-6 text-gray-600">
+        <li><strong>回弹控制：</strong>高强钢和不锈钢等材料回弹严重，导致尺寸偏差。</li>
+        <li><strong>模具制造难度大：</strong>大型模具重量可达数十吨，加工精度要求极高，周期长成本高。</li>
+        <li><strong>缺陷控制：</strong>起皱、开裂、毛刺等问题需通过优化间隙、润滑和工艺参数解决。</li>
+        <li><strong>设备要求高：</strong>需要数千至上万吨级压力机及专业搬运对准设备。</li>
+        <li><strong>成本与周期：</strong>前期投入大，更适合大批量生产以分摊成本。</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">典型应用</h2>
+      <ul class="list-disc pl-6 mb-6 text-gray-600">
+        <li><strong>汽车行业：</strong>车身覆盖件、底盘部件、油箱等。</li>
+        <li><strong>航空航天：</strong>机翼蒙皮、发动机外壳、大型结构件。</li>
+        <li><strong>轨道交通与船舶：</strong>高强度覆盖件和框架结构。</li>
+        <li><strong>工业设备：</strong>压力容器、机械外壳及耐用零件。</li>
+      </ul>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">发展趋势</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">大型冲压正在向轻量化材料、数控伺服冲压、数字化仿真和自动化生产方向发展。这些技术的应用有助于解决传统工艺难题，拓展其应用领域。</p>
+
+      <h2 class="text-2xl font-semibold text-gray-800 border-b pb-2 mb-6">结论</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">作为现代金属成形的重要工艺，大型冲压能够高效生产复杂的大型零部件。通过解决材料、模具和工艺中的挑战，制造商能够实现更高的效率、一致性和竞争力。</p>
+    `
+  },
+  "date": "2025-09-05",
+  "image": "/images/products/metal-deep-drawing/product204/metal-deep-drawing-1.jpeg"
+},
   {
     "knowledge_id": "large-scale-stamping-dies",
     "title": {
