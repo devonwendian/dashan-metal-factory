@@ -1,5 +1,19 @@
 const productListData = {
   "metalSpinning": [
+      {
+      index: 'product206',
+      product_id: 'metal-spinning-product206',
+      name: 'Manufacturer Custom Double-Layer Insulated Brass Cup Spinning Processing',
+      category: ['Metal Spinning Parts'],
+      images: [
+        '/images/products/metal-spinning/product206/metal-spinning-1.jpeg',
+        '/images/products/metal-spinning/product206/metal-spinning-2.jpeg',
+        '/images/products/metal-spinning/product206/metal-spinning-3.jpeg',
+        '/images/products/metal-spinning/product206/metal-spinning-4.jpeg',
+        '/images/products/metal-spinning/product206/metal-spinning-5.jpeg',
+      ],
+      video: "",
+    },
     {
       index: 'product191',
       product_id: 'metal-spinning-product191',
@@ -326,6 +340,20 @@ const productListData = {
     },
   ],
   "metalDeepDrawing": [
+    {
+      index: 'product209',
+      product_id: 'metal-stamping-product209',
+      name: 'Factory Custom Large Long Oval Aluminum Lampshade Stamping Processing',
+      category: ['Metal Stamping Parts', 'Metal Deep Drawing Parts'],
+      images: [
+        '/images/products/metal-deep-drawing/product209/metal-stamping-1.jpeg',
+        '/images/products/metal-deep-drawing/product209/metal-stamping-2.jpeg',
+        '/images/products/metal-deep-drawing/product209/metal-stamping-3.jpeg',
+        '/images/products/metal-deep-drawing/product209/metal-stamping-4.jpeg',
+        '/images/products/metal-deep-drawing/product209/metal-stamping-5.jpeg',
+      ],
+      video: "",
+    },
     {
       index: 'product204',
       product_id: 'metal-deep-drawing-product204',
