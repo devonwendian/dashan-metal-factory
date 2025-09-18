@@ -48,22 +48,22 @@ export default function AboutPage() {
             <div className="space-y-12">
               <div className="bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-xl md:text-2xl font-semibold text-blue-600 mb-4">{t('our_factory')}</h2>
-                <p className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_intro')}</p>
+                <h3 className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_intro')}</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-xl md:text-2xl font-semibold text-blue-600 mb-4">{t('expertise')}</h2>
-                <p className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_expertise')}</p>
+                <h3 className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_expertise')}</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-xl md:text-2xl font-semibold text-blue-600 mb-4">{t('certification')}</h2>
-                <p className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_certification')}</p>
+                <h3 className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_certification')}</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-xl md:text-2xl font-semibold text-blue-600 mb-4">{t('our_founder')}</h2>
-                <p className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_founder')}</p>
+                <h3 className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_founder')}</h3>
               </div>
               <div className="bg-white p-8 rounded-lg shadow-md text-center">
-                <p className="text-gray-800 text-sm md:text-base leading-relaxed font-semibold">{t('factory_invitation')}</p>
+                <h3 className="text-gray-800 text-sm md:text-base leading-relaxed font-semibold">{t('factory_invitation')}</h3>
               </div>
             </div>
           </div>
