@@ -31,6 +31,13 @@ const WorkshopAreas = () => {
         '/images/workshop-areas/stamping-area-2.jpeg',
       ],
     },
+      {
+      id: 6,
+      title: t('3D Laser Cutting Area'),
+      images: [
+        '/images/workshop-areas/3d-laser-cutting-area.jpeg'
+      ],
+    },
     {
       id: 4,
       title: t('Manual Spinning Area'),
