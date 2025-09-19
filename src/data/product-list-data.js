@@ -343,7 +343,7 @@ const productListData = {
       {
       index: 'product208',
       product_id: 'metal-stamping-product208',
-      name: 'OEM Custom Automotive Mesh Cover Stamping Processing',
+      name: 'Automotive Mesh Cover Stamping Processing',
       category: ['Metal Stamping Parts', 'Metal Deep Drawing Parts'],
       images: [
         '/images/products/metal-deep-drawing/product208/metal-stamping-5.jpeg',
