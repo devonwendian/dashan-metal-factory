@@ -47,6 +47,7 @@ const FactoryIntro = () => {
                   alt={t('timeline_1_image_alt')}
                   fill
                   className="object-cover"
+                  loading="lazy"
                   priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
