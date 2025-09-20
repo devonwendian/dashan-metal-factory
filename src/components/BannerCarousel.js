@@ -118,6 +118,7 @@ const banners = [
             fill
             sizes="100vw"
             className="object-cover"
+            loading="lazy"
             // priority={index === 0}
             // loading={index === 0 ? undefined : 'lazy'}
           />
