@@ -410,6 +410,20 @@ const productListData = {
       ],
       video: "",
     },
+      {
+      index: 'product217',
+      product_id: 'metal-stamping-product217',
+      name: 'Stainless Steel Mechanical Parts Cover Deep Drawing Processing',
+      category: ['Metal Stamping Parts', 'Metal Deep Drawing Parts'],
+      images: [
+        '/images/products/metal-deep-drawing/product217/metal-deep-drawing-1.jpeg',
+        '/images/products/metal-deep-drawing/product217/metal-deep-drawing-2.jpeg',
+        '/images/products/metal-deep-drawing/product217/metal-deep-drawing-3.jpeg',
+        '/images/products/metal-deep-drawing/product217/metal-deep-drawing-4.jpeg',
+        '/images/products/metal-deep-drawing/product217/metal-deep-drawing-5.jpeg',
+      ],
+      video: "",
+    },
     {
       index: 'product158',
       product_id: 'metal-stamping-product158',
