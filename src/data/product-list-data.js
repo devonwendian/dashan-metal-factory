@@ -1,6 +1,20 @@
 const productListData = {
   "metalSpinning": [
         {
+      index: 'product216',
+      product_id: 'metal-spinning-product216',
+      name: 'CNC Spinning Processing of Aluminum Alloy Mechanical Parts',
+      category: ['Metal Spinning Parts'],
+      images: [
+        '/images/products/metal-spinning/product216/metal-spinning-1.jpeg',
+        '/images/products/metal-spinning/product216/metal-spinning-2.jpeg',
+        '/images/products/metal-spinning/product216/metal-spinning-3.jpeg',
+        '/images/products/metal-spinning/product216/metal-spinning-4.jpeg',
+        '/images/products/metal-spinning/product216/metal-spinning-5.jpeg',
+      ],
+      video: "",
+    },
+        {
       index: 'product214',
       product_id: 'metal-spinning-product214',
       name: 'Manufacturer Custom Spinning Processing of Large Hemispherical Aluminum Part',
