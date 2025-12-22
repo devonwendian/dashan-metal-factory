@@ -74,8 +74,8 @@ export default function AboutPage() {
                   </div>
                   <div className="flex justify-center">
                     <Image
-                      src="/images/factory_founder_certification.jpg"
-                      alt="Appointment Certificate of External Master's Supervisor, South China University of Technology"
+                      src="/images/certificates/scut-supervisor.jpg"
+                      alt={t('factory_founder_certification_alt')}
                       width={420}
                       height={600}
                       className="rounded-md shadow-lg border border-gray-200"
