@@ -48,7 +48,7 @@ const FactoryIntro = () => {
                   fill
                   className="object-cover"
                   loading="lazy"
-                  priority
+                  // priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>

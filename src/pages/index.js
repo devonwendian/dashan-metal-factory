@@ -8,7 +8,7 @@ import ManufacturingProcessesVideos from '@/components/ManufacturingProcessesVid
 import FactoryIntro from '@/components/FactoryIntro';
 import WorkshopAreas from '@/components/WorkshopAreas';
 import OurCustomers from '@/components/OurCustomers';
-import ContactUs from '@/components/ContactUs';
+// import ContactUs from '@/components/ContactUs';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
 
@@ -44,7 +44,7 @@ export default function Home() {
         <FactoryIntro />
         <WorkshopAreas />
         <OurCustomers />
-        <ContactUs />
+        {/* <ContactUs /> */}
       </main>
       <Footer />
     </>

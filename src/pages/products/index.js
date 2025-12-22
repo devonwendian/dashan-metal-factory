@@ -8,7 +8,7 @@ import Footer from '@/components/Footer';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import productListData from '@/data/product-list-data';
-import ContactUs from '@/components/ContactUs';
+// import ContactUs from '@/components/ContactUs';
 
 const categories = ['All', 'Metal Spinning Parts', 'Metal Deep Drawing Parts'];
 const allData = [...productListData.metalSpinning, ...productListData.metalDeepDrawing];
@@ -257,7 +257,7 @@ export default function ProductsPage() {
           </div>
         </div>
       </div>
-      <ContactUs />
+      {/* <ContactUs /> */}
       <Footer />
     </>
   );

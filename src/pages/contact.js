@@ -3,7 +3,7 @@ import { useTranslation } from 'next-i18next';
 import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import { FaPhone, FaEnvelope, FaWeixin, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaWeixin, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import Image from 'next/image';
 
 export default function ContactPage() {
@@ -45,6 +45,12 @@ export default function ContactPage() {
             <h2 className="text-3xl font-semibold text-gray-900 mb-8 text-center">{t('contact.info')}</h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               <div className="space-y-6">
+                <div className="flex items-center space-x-3">
+                  <FaWhatsapp className="text-blue-600" size={24} />
+                  <div>
+                      +86-18576639259
+                  </div>
+                </div>
                 <div className="flex items-center space-x-3">
                   <FaPhone className="text-blue-600" size={24} />
                   <div>
@@ -105,6 +111,13 @@ export default function ContactPage() {
         </section>
       </main>
       <Footer />
+      <script
+        type="text/javascript"
+        async
+        src="https://embed.tawk.to/68386c24ff68c4190ac35a80/1ise6cs8i"
+        charSet="UTF-8"
+        crossOrigin="*"
+      ></script>
     </>
   );
 }

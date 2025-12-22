@@ -58,12 +58,34 @@ export default function AboutPage() {
                 <h2 className="text-xl md:text-2xl font-semibold text-blue-600 mb-4">{t('certification')}</h2>
                 <h3 className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_certification')}</h3>
               </div>
-              <div className="bg-white p-8 rounded-lg shadow-md">
+              {/* <div className="bg-white p-8 rounded-lg shadow-md">
                 <h2 className="text-xl md:text-2xl font-semibold text-blue-600 mb-4">{t('our_founder')}</h2>
                 <h3 className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_founder')}</h3>
+              </div> */}
+              <div className="bg-white p-8 rounded-lg shadow-md">
+                <h2 className="text-xl md:text-2xl font-semibold text-blue-600 mb-6">
+                  {t('our_founder')}
+                </h2>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                  <div className="text-gray-800 text-sm md:text-base leading-relaxed font-light space-y-4">
+                    <h3 className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_founder')}</h3>
+                    <h3 className="text-gray-800 text-sm md:text-base leading-relaxed font-light">{t('factory_founder2')}</h3>
+                  </div>
+                  <div className="flex justify-center">
+                    <Image
+                      src="/images/factory_founder_certification.jpg"
+                      alt="Appointment Certificate of External Master's Supervisor, South China University of Technology"
+                      width={420}
+                      height={600}
+                      className="rounded-md shadow-lg border border-gray-200"
+                    />
+                  </div>
+                </div>
               </div>
+
               <div className="bg-white p-8 rounded-lg shadow-md text-center">
-                <h3 className="text-gray-800 text-sm md:text-base leading-relaxed font-semibold">{t('factory_invitation')}</h3>
+                <h3 className="text-gray-800 text-sm md:text-base leading-relaxed">{t('factory_invitation')}</h3>
               </div>
             </div>
           </div>
