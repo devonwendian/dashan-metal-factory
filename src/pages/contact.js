@@ -47,7 +47,7 @@ export default function ContactPage() {
               <div className="space-y-6">
                 <div className="flex items-center space-x-3">
                   <FaWhatsapp className="text-blue-600" size={24} />
-                  <div>
+                  <div className="text-gray-700 hover:text-blue-600 text-lg block">
                       +86-18576639259
                   </div>
                 </div>
