@@ -1,10 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'next-i18next';
-import Image from 'next/image';
 
 const ManufacturingProcessesVideos = () => {
   const { t, i18n } = useTranslation('home');
-  const [useBilibili, setUseBilibili] = useState(i18n.language.includes('zh'));
+  const isZh = i18n.language === 'zh';
+  /** 仅中文站可切到 YouTube；离开中文站时复位 */
+  const [useYoutubeOnZh, setUseYoutubeOnZh] = useState(false);
+
+  useEffect(() => {
+    if (!isZh) setUseYoutubeOnZh(false);
+  }, [isZh]);
+
+  const useBilibili = isZh && !useYoutubeOnZh;
 
   const videos = [
     {
@@ -37,10 +44,6 @@ const ManufacturingProcessesVideos = () => {
     },
   ];
 
-  const toggleVideoSource = () => {
-    setUseBilibili(!useBilibili);
-  };
-
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
@@ -52,15 +55,18 @@ const ManufacturingProcessesVideos = () => {
             <VideoCard key={video.title} video={video} useBilibili={useBilibili} />
           ))}
         </div>
-        <div className="flex justify-center mt-8">
-          <button
-            onClick={toggleVideoSource}
-            className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200"
-            aria-label={t(useBilibili ? 'Switch to YouTube' : 'Switch to Bilibili')}
-          >
-            {t(useBilibili ? t('Watch on YouTube') : t('Watch on Bilibili'))}
-          </button>
-        </div>
+        {isZh ? (
+          <div className="flex justify-center mt-8">
+            <button
+              type="button"
+              onClick={() => setUseYoutubeOnZh((v) => !v)}
+              className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200"
+              aria-label={t(useBilibili ? 'Switch to YouTube' : 'Switch to Bilibili')}
+            >
+              {t(useBilibili ? 'Watch on YouTube' : 'Watch on Bilibili')}
+            </button>
+          </div>
+        ) : null}
       </div>
     </section>
   );
