@@ -9,16 +9,17 @@ import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import ContactUs from '@/components/ContactUs';
 import Head from 'next/head';
+import { I18N_LOCALES, absoluteUrl, alternateHrefLangLinks, absolutePublicUrl, SITE_BASE } from '@/lib/i18n-seo';
+import SeoOpenGraph from '@/components/SeoOpenGraph';
 
 const allData = [...productListData.metalSpinning, ...productListData.metalDeepDrawing];
 
 export async function getStaticPaths() {
-  const locales = ['zh', 'en'];
   const paths = [];
 
   if (Array.isArray(allData)) {
     for (const product of allData) {
-      for (const locale of locales) {
+      for (const locale of I18N_LOCALES) {
         paths.push({
           params: {
             product_id: product.product_id,
@@ -53,34 +54,47 @@ export default function ProductDetail({ product }) {
   if (!product) {
     return <div className="text-center py-12">{t('product_not_found')}</div>;
   }
-  const baseUrl = 'https://dsmetalstamping.com';
+  const detailPath = `/products/${product.product_id}`;
+  const canonicalUrl = absoluteUrl(i18n.language, detailPath);
+  const alternates = alternateHrefLangLinks(detailPath);
+  const productName = t(product.name, { ns: 'product-list' });
+  const pageTitle = t('title', { ns: 'product-detail', productName });
+  const pageDesc = t('description', { ns: 'product-detail', productName });
+  const ogImage =
+    typeof selectedImage === 'string' && selectedImage.startsWith('/')
+      ? absolutePublicUrl(selectedImage)
+      : absolutePublicUrl(product.images[0]);
 
-  const canonicalUrl = baseUrl + (i18n.language === 'zh' ? `/zh/products/${product.product_id}` : `/products/${product.product_id}`);
+  const productJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: productName,
+    description: pageDesc,
+    image: product.images.map((src) => (src.startsWith('/') ? absolutePublicUrl(src) : src)),
+    sku: product.product_id,
+    brand: { '@type': 'Brand', name: 'Dashan Metal' },
+    offers: {
+      '@type': 'Offer',
+      url: canonicalUrl,
+      availability: 'https://schema.org/InStock',
+      seller: { '@type': 'Organization', name: 'Dashan Metal', url: SITE_BASE },
+    },
+  };
 
   return (
     <>
       <Head>
-        <title>{t('title', {ns: 'product-detail', productName: t(product.name, {ns: 'product-list'})})}</title>
-        <meta name="description" content={t('description', {ns: 'product-detail', productName: t(product.name, {ns: 'product-list'})})} />
+        <title>{pageTitle}</title>
+        <meta name="description" content={pageDesc} />
         <link rel="canonical" href={canonicalUrl} />
-        <link 
-          rel="alternate" 
-          hreflang="zh" 
-          href={`${baseUrl}/zh/products/${product.product_id}`} 
-        />
-        <link 
-          rel="alternate" 
-          hreflang="en" 
-          href={`${baseUrl}/products/${product.product_id}`} 
-        />
-        <link 
-          rel="alternate" 
-          hreflang="x-default"
-          href={`${baseUrl}/products/${product.product_id}`} 
-        />
+        {alternates.map(({ hrefLang, href }) => (
+          <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
+        ))}
+        <SeoOpenGraph url={canonicalUrl} title={pageTitle} description={pageDesc} image={ogImage} locale={i18n.language} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
       </Head>
       <Header />
-      <h1 class="sr-only">{t('detail-h1', {ns: 'product-detail', productName: t(product.name, {ns: 'product-list'})})}</h1>
+      <h1 className="sr-only">{t('detail-h1', {ns: 'product-detail', productName: t(product.name, {ns: 'product-list'})})}</h1>
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 面包屑导航 */}

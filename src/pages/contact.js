@@ -5,19 +5,17 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { FaPhone, FaEnvelope, FaWeixin, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import Image from 'next/image';
+import { absoluteUrl, alternateHrefLangLinks, absolutePublicUrl } from '@/lib/i18n-seo';
+import SeoOpenGraph from '@/components/SeoOpenGraph';
 
 export default function ContactPage() {
   const { t, i18n } = useTranslation('contact');
   const isChinese = i18n.language === 'zh';
-  const mapImage = isChinese ? '/images/factory-map.png' : '/images/factory-map.png';
+  const mapImage = '/images/factory-map.png';
   const mapAlt = isChinese ? t('contact.map_alt_zh') : t('contact.map_alt_en');
-  const siteBase = 'https://dsmetalstamping.com';
-
-  const locales = {
-    zh: '/zh/contact',
-  };
-
-  const canonicalUrl = siteBase + (locales[i18n.language] ? locales[i18n.language] : '/contact');
+  const canonicalUrl = absoluteUrl(i18n.language, '/contact');
+  const alternates = alternateHrefLangLinks('/contact');
+  const ogImage = absolutePublicUrl('/images/factory-map.png');
 
   return (
     <>
@@ -25,9 +23,16 @@ export default function ContactPage() {
         <title>{t('title', {ns: 'contact'})}</title>
         <meta name="description" content={t('description')} />
         <link rel="canonical" href={canonicalUrl} />
-        <link rel="alternate" hreflang="zh" href="https://dsmetalstamping.com/zh/contact" />
-        <link rel="alternate" hreflang="en" href="https://dsmetalstamping.com/contact" />
-        <link rel="alternate" hreflang="x-default" href="https://dsmetalstamping.com/contact" />
+        {alternates.map(({ hrefLang, href }) => (
+          <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
+        ))}
+        <SeoOpenGraph
+          url={canonicalUrl}
+          title={t('title', { ns: 'contact' })}
+          description={t('description')}
+          image={ogImage}
+          locale={i18n.language}
+        />
       </Head>
       <Header />
       <main className="min-h-screen bg-gray-50">

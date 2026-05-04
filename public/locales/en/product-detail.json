@@ -1,5 +1,7 @@
 {
   "title": "{{productName}} - Dashan Metal Manufacturing",
   "description": "Precision-crafted {{productName}} with custom options in stainless steel, iron, aluminum and more. OEM available. Reliable quality from a factory with 20+ years of experience.",
-  "detail-h1": "{{productName}} - Dashan Metal Product Details Page"
+  "detail-h1": "{{productName}} - Dashan Metal Product Details Page",
+  "product_not_found": "Product not found",
+  "product_video": "Product video"
 }

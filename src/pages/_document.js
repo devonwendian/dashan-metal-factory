@@ -1,13 +1,16 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import Document, { Html, Head, Main, NextScript } from "next/document";
 import Script from 'next/script';
 
-export default function Document() {
+export default function MyDocument({ locale }) {
+  const htmlLang = locale || 'en';
   return (
-    <Html lang="en">
+    <Html lang={htmlLang}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="https://dsmetalstamping.com/sitemap.xml" />
+        <meta name="theme-color" content="#ffffff" />
       </Head>
-      <body class="bg-white font-sans antialiased">
+      <body className="bg-white font-sans antialiased">
         <Main />
         <NextScript />
         <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-G2R1R88K0V" />
@@ -23,14 +26,12 @@ export default function Document() {
             `,
           }}
         />
-        {/* <script
-          type="text/javascript"
-          async
-          src="https://embed.tawk.to/68386c24ff68c4190ac35a80/1ise6cs8i"
-          charSet="UTF-8"
-          crossOrigin="*"
-        ></script> */}
       </body>
     </Html>
   );
 }
+
+MyDocument.getInitialProps = async (ctx) => {
+  const initialProps = await Document.getInitialProps(ctx);
+  return { ...initialProps, locale: ctx.locale || 'en' };
+};

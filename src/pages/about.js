@@ -4,18 +4,26 @@ import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Image from 'next/image';
+import { absoluteUrl, alternateHrefLangLinks, absolutePublicUrl, SITE_BASE } from '@/lib/i18n-seo';
+import SeoOpenGraph from '@/components/SeoOpenGraph';
+
 const factoryImage = '/images/factory-intro/factory-gate.jpg';
 
 export default function AboutPage() {
   const { t, i18n } = useTranslation('about');
 
-  const siteBase = 'https://dsmetalstamping.com';
-
-  const locales = {
-    zh: '/zh/about',
+  const canonicalUrl = absoluteUrl(i18n.language, '/about');
+  const alternates = alternateHrefLangLinks('/about');
+  const ogImage = absolutePublicUrl(factoryImage);
+  const webPageJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    name: t('about_page_title'),
+    description: t('about_page_description'),
+    url: canonicalUrl,
+    isPartOf: { '@type': 'WebSite', name: 'Dashan Metal', url: SITE_BASE },
+    primaryImageOfPage: { '@type': 'ImageObject', url: ogImage },
   };
-
-  const canonicalUrl = siteBase + (locales[i18n.language] ? locales[i18n.language] : '/about');
 
   return (
     <>
@@ -24,9 +32,17 @@ export default function AboutPage() {
         <meta name="description" content={t('about_page_description')} />
         <meta name="keywords" content={t('about_page_keywords')} />
         <link rel="canonical" href={canonicalUrl} />
-        <link rel="alternate" hreflang="zh" href="https://dsmetalstamping.com/zh/about" />
-        <link rel="alternate" hreflang="en" href="https://dsmetalstamping.com/about" />
-        <link rel="alternate" hreflang="x-default" href="https://dsmetalstamping.com/about" />
+        {alternates.map(({ hrefLang, href }) => (
+          <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
+        ))}
+        <SeoOpenGraph
+          url={canonicalUrl}
+          title={t('about_page_title')}
+          description={t('about_page_description')}
+          image={ogImage}
+          locale={i18n.language}
+        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       </Head>
       <Header />
       <main className="bg-gray-50 min-h-screen">

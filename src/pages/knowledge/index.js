@@ -6,27 +6,43 @@ import Head from 'next/head';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import knowledgeListData from '@/data/knowledge-list-data';
+import { absoluteUrl, alternateHrefLangLinks, absolutePublicUrl, SITE_BASE } from '@/lib/i18n-seo';
+import SeoOpenGraph from '@/components/SeoOpenGraph';
+import { pickLocalized } from '@/lib/pickLocalized';
 
 export default function KnowledgeList({ }) {
   const { t, i18n } = useTranslation(['common', 'knowledge']);
 
-  const siteBase = 'https://dsmetalstamping.com';
-
-  const locales = {
-    zh: '/zh/knowledge',
+  const canonicalUrl = absoluteUrl(i18n.language, '/knowledge');
+  const alternates = alternateHrefLangLinks('/knowledge');
+  const firstImage = knowledgeListData[0]?.image;
+  const ogImage = firstImage ? absolutePublicUrl(firstImage) : absolutePublicUrl('/images/workshop-areas/cnc-spinning-1.jpeg');
+  const listJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: t('title', { ns: 'knowledge' }),
+    description: t('description', { ns: 'knowledge' }),
+    url: canonicalUrl,
+    isPartOf: { '@type': 'WebSite', url: SITE_BASE },
   };
 
-  const canonicalUrl = siteBase + (locales[i18n.language] ? locales[i18n.language] : '/knowledge');
-  
   return (
     <>
       <Head>
-        <title>{t('title', {ns: 'knowledge'})}</title>
-        <meta name="description" content={t('description')} />
+        <title>{t('title', { ns: 'knowledge' })}</title>
+        <meta name="description" content={t('description', { ns: 'knowledge' })} />
         <link rel="canonical" href={canonicalUrl} />
-        <link rel="alternate" hreflang="zh" href="https://dsmetalstamping.com/zh/knowledge" />
-        <link rel="alternate" hreflang="en" href="https://dsmetalstamping.com/knowledge" />
-        <link rel="alternate" hreflang="x-default" href="https://dsmetalstamping.com/knowledge" />
+        {alternates.map(({ hrefLang, href }) => (
+          <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
+        ))}
+        <SeoOpenGraph
+          url={canonicalUrl}
+          title={t('title', { ns: 'knowledge' })}
+          description={t('description', { ns: 'knowledge' })}
+          image={ogImage}
+          locale={i18n.language}
+        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listJsonLd) }} />
       </Head>
       <Header />
       <section className="container mx-auto py-12 px-6">
@@ -43,7 +59,7 @@ export default function KnowledgeList({ }) {
                 <div className="relative h-48">
                   <Image
                     src={article.image}
-                    alt={article.title[i18n.language]}
+                    alt={pickLocalized(article.title, i18n.language)}
                     fill
                     className="object-cover"
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
@@ -51,10 +67,10 @@ export default function KnowledgeList({ }) {
                 </div>
                 <div className="p-6">
                   <h2 className="text-xl font-semibold text-gray-800 mb-2">
-                    {article.title[i18n.language]}
+                    {pickLocalized(article.title, i18n.language)}
                   </h2>
                   <p className="text-gray-600 text-sm mb-4">
-                    {article.description[i18n.language]}
+                    {pickLocalized(article.description, i18n.language)}
                   </p>
                   <p className="text-gray-500 text-sm">{article.date}</p>
                 </div>

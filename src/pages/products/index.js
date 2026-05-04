@@ -8,6 +8,8 @@ import Footer from '@/components/Footer';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import productListData from '@/data/product-list-data';
+import { absoluteUrl, alternateHrefLangLinks, absolutePublicUrl, SITE_BASE } from '@/lib/i18n-seo';
+import SeoOpenGraph from '@/components/SeoOpenGraph';
 // import ContactUs from '@/components/ContactUs';
 
 const categories = ['All', 'Metal Spinning Parts', 'Metal Deep Drawing Parts'];
@@ -53,47 +55,46 @@ export default function ProductsPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const baseUrl = 'https://dsmetalstamping.com'; // 替换为实际域名
-
-  const locales = {
-    zh: '/zh/products',
+  const pageQuery = currentPage > 1 ? `page=${currentPage}` : '';
+  const canonicalUrl = absoluteUrl(i18n.language, '/products', pageQuery);
+  const alternates = alternateHrefLangLinks('/products', pageQuery);
+  const prevQuery = currentPage === 2 ? '' : `page=${currentPage - 1}`;
+  const nextQuery = `page=${currentPage + 1}`;
+  const listTitle = t('title', { ns: 'product-list' });
+  const listDesc = t('description', { ns: 'product-list' });
+  const ogImage = absolutePublicUrl('/images/workshop-areas/stamping-area-2.jpeg');
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: listTitle,
+    description: listDesc,
+    url: canonicalUrl,
+    isPartOf: { '@type': 'WebSite', url: SITE_BASE },
   };
-
-  const canonicalUrl = baseUrl + (locales[i18n.language] ? locales[i18n.language] : '/products');
 
   return (
     <>
       <Head>
-        <title>{t('title', {ns: 'product-list'})}</title>
-        <meta name="description" content={t('description', {ns: 'product-list'})} />
+        <title>{listTitle}</title>
+        <meta name="description" content={listDesc} />
         <link rel="canonical" href={canonicalUrl} />
-        <link rel="alternate" hreflang="zh" href="https://dsmetalstamping.com/zh/products" />
-        <link rel="alternate" hreflang="en" href="https://dsmetalstamping.com/products" />
-        <link rel="alternate" hreflang="x-default" href="https://dsmetalstamping.com/products" />
+        {alternates.map(({ hrefLang, href }) => (
+          <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
+        ))}
         {currentPage > 1 && (
-          <link
-            rel="prev"
-            href={`${baseUrl}/${locale}/products${currentPage === 2 ? '' : `?page=${currentPage - 1}`}`}
-          />
+          <link rel="prev" href={absoluteUrl(locale, '/products', prevQuery)} />
         )}
         {currentPage < totalPages && (
-          <link rel="next" href={`${baseUrl}/${locale}/products?page=${currentPage + 1}`} />
+          <link rel="next" href={absoluteUrl(locale, '/products', nextQuery)} />
         )}
-        <link
-          rel="alternate"
-          hrefLang="x-default"
-          href={`${baseUrl}/en/products${currentPage > 1 ? `?page=${currentPage}` : ''}`}
+        <SeoOpenGraph
+          url={canonicalUrl}
+          title={listTitle}
+          description={listDesc}
+          image={ogImage}
+          locale={i18n.language}
         />
-        <link
-          rel="alternate"
-          hrefLang="en"
-          href={`${baseUrl}/en/products${currentPage > 1 ? `?page=${currentPage}` : ''}`}
-        />
-        <link
-          rel="alternate"
-          hrefLang="zh"
-          href={`${baseUrl}/zh/products${currentPage > 1 ? `?page=${currentPage}` : ''}`}
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }} />
       </Head>
       <Header />
       <div className="min-h-screen bg-gray-50 py-12">

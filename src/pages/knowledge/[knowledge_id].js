@@ -5,35 +5,49 @@ import Head from 'next/head';
 import knowledgeListData from '@/data/knowledge-list-data';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-
-const baseUrl = 'https://dsmetalstamping.com';
+import { absoluteUrl, alternateHrefLangLinks, I18N_LOCALES, absolutePublicUrl, SITE_BASE } from '@/lib/i18n-seo';
+import { pickLocalized } from '@/lib/pickLocalized';
+import SeoOpenGraph from '@/components/SeoOpenGraph';
 
 export default function KnowledgeDetail({ knowledge }) {
-  const { t, i18n } = useTranslation('common');
+  const { i18n } = useTranslation('common');
 
-  const canonicalUrl = baseUrl + (i18n.language === 'zh' ? `/zh/knowledge/${knowledge.knowledge_id}` : `/knowledge/${knowledge.knowledge_id}`);
+  const detailPath = `/knowledge/${knowledge.knowledge_id}`;
+  const canonicalUrl = absoluteUrl(i18n.language, detailPath);
+  const alternates = alternateHrefLangLinks(detailPath);
+  const title = pickLocalized(knowledge.title, i18n.language);
+  const description = pickLocalized(knowledge.description, i18n.language);
+  const contentHtml = pickLocalized(knowledge.content, i18n.language);
+  const ogImage = knowledge.image ? absolutePublicUrl(knowledge.image) : undefined;
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: title,
+    description,
+    image: ogImage ? [ogImage] : undefined,
+    datePublished: knowledge.date,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    publisher: { '@type': 'Organization', name: 'Dashan Metal', url: SITE_BASE },
+  };
 
   return (
     <>
       <Head>
-        <title>{knowledge.title[i18n.language]}</title>
-        <meta name="description" content={knowledge.description[i18n.language]} />
+        <title>{title}</title>
+        <meta name="description" content={description} />
         <link rel="canonical" href={canonicalUrl} />
-        <link 
-          rel="alternate" 
-          hreflang="zh" 
-          href={`${baseUrl}/zh/knowledge/${knowledge.knowledge_id}`} 
+        {alternates.map(({ hrefLang, href }) => (
+          <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
+        ))}
+        <SeoOpenGraph
+          url={canonicalUrl}
+          title={title}
+          description={description}
+          image={ogImage}
+          locale={i18n.language}
+          type="article"
         />
-        <link 
-          rel="alternate" 
-          hreflang="en" 
-          href={`${baseUrl}/knowledge/${knowledge.knowledge_id}`} 
-        />
-        <link 
-          rel="alternate" 
-          hreflang="x-default"
-          href={`${baseUrl}/knowledge/${knowledge.knowledge_id}`} 
-        />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       </Head>
       <Header />
       <article className="container mx-auto px-4 sm:px-6 py-12">
@@ -41,7 +55,7 @@ export default function KnowledgeDetail({ knowledge }) {
           <div className="relative h-56 sm:h-80 rounded-lg overflow-hidden">
             <Image
               src={knowledge.image}
-              alt={knowledge.title[i18n.language]}
+              alt={title}
               fill
               className="object-cover"
               sizes="100vw"
@@ -49,12 +63,12 @@ export default function KnowledgeDetail({ knowledge }) {
             />
           </div>
           <h1 className="text-3xl sm:text-4xl font-bold text-gray-800 mt-8 mb-4 text-center">
-            {knowledge.title[i18n.language]}
+            {title}
           </h1>
           <p className="text-gray-500 text-sm mb-8 text-center">{knowledge.date}</p>
           <div
             className="prose prose-lg text-gray-700 max-w-3xl mx-auto"
-            dangerouslySetInnerHTML={{ __html: knowledge.content[i18n.language] }}
+            dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
         </div>
       </article>
@@ -74,12 +88,11 @@ export async function getStaticProps({ params, locale }) {
 }
 
 export async function getStaticPaths() {
-  const locales = ['zh', 'en'];
   const paths = [];
 
   if (Array.isArray(knowledgeListData)) {
     for (const knowledge of knowledgeListData) {
-      for (const locale of locales) {
+      for (const locale of I18N_LOCALES) {
         paths.push({
           params: {
             knowledge_id: knowledge.knowledge_id,

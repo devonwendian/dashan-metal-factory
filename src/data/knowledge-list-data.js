@@ -1,4 +1,6 @@
-const knowledgeListData = [
+import { mergeKnowledgeArticleLocales } from './knowledge-merge-locales';
+
+const rawKnowledgeListData = [
 {
   "knowledge_id": "large-scale-stamping-process",
   "title": {
@@ -767,4 +769,5 @@ const knowledgeListData = [
     "image": "/images/workshop-areas/cnc-spinning-1.jpeg"
   }
 ];
+const knowledgeListData = mergeKnowledgeArticleLocales(rawKnowledgeListData);
 export default knowledgeListData;

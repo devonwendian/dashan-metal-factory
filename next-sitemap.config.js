@@ -1,3 +1,10 @@
+/**
+ * After deploy: submit https://dsmetalstamping.com/sitemap.xml in
+ * Google Search Console (https://search.google.com/search-console) and
+ * Bing Webmaster Tools (https://www.bing.com/webmasters).
+ */
+const { locales, defaultLocale } = require('./locales.json');
+
 module.exports = {
   siteUrl: 'https://dsmetalstamping.com', // 替换为你的域名
   generateRobotsTxt: true, // 自动生成 robots.txt
@@ -5,15 +12,18 @@ module.exports = {
   changefreq: 'weekly', // 更新频率，可选：always, hourly, daily, weekly, monthly, yearly, never
   priority: 1, // 默认优先级
   i18n: {
-    defaultLocale: 'en', // 默认语言
-    locales: ['en', 'zh'], // 支持的语言
+    defaultLocale,
+    locales,
   },
   transform: async (config, path) => {
     let changefreq = 'monthly';
     let priority = 0.7; // 默认优先级
 
+    const localePrefixes = locales.filter((l) => l !== defaultLocale).join('|');
+    const homeRe = new RegExp(`^\\/(${localePrefixes})?$`);
+
     // 首页
-    if (path === '/' || path.match(/^\/(en|zh)$/)) {
+    if (path === '/' || homeRe.test(path)) {
       changefreq = 'weekly';
       priority = 1.0; // 最高优先级
     }
