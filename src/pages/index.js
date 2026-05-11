@@ -42,7 +42,6 @@ export default function Home() {
       email: 'wendian1989@gmail.com',
       availableLanguage: ['English', 'Chinese', 'Japanese', 'Spanish'],
     },
-    sameAs: [],
   };
 
   return (

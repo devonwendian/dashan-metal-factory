@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import ContactUs from '@/components/ContactUs';
 import Head from 'next/head';
-import { I18N_LOCALES, absoluteUrl, alternateHrefLangLinks, absolutePublicUrl, SITE_BASE } from '@/lib/i18n-seo';
+import { I18N_LOCALES, absoluteUrl, alternateHrefLangLinks, absolutePublicUrl } from '@/lib/i18n-seo';
 import SeoOpenGraph from '@/components/SeoOpenGraph';
 
 const allData = [...productListData.metalSpinning, ...productListData.metalDeepDrawing];
@@ -65,20 +65,17 @@ export default function ProductDetail({ product }) {
       ? absolutePublicUrl(selectedImage)
       : absolutePublicUrl(product.images[0]);
 
+  /** 无固定电商标价：不包含 offers，避免触发 Google 对 price / 退货 / 运费等商家摘要的强制校验 */
   const productJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Product',
+    '@id': `${canonicalUrl}#product`,
     name: productName,
     description: pageDesc,
     image: product.images.map((src) => (src.startsWith('/') ? absolutePublicUrl(src) : src)),
     sku: product.product_id,
     brand: { '@type': 'Brand', name: 'Dashan Metal' },
-    offers: {
-      '@type': 'Offer',
-      url: canonicalUrl,
-      availability: 'https://schema.org/InStock',
-      seller: { '@type': 'Organization', name: 'Dashan Metal', url: SITE_BASE },
-    },
+    url: canonicalUrl,
   };
 
   return (
