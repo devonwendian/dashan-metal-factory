@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import ContactUs from '@/components/ContactUs';
 import Head from 'next/head';
-import { I18N_LOCALES, absoluteUrl, alternateHrefLangLinks, absolutePublicUrl } from '@/lib/i18n-seo';
+import { I18N_LOCALES, absoluteUrl, alternateHrefLangLinks, absolutePublicUrl, SITE_BASE } from '@/lib/i18n-seo';
 import SeoOpenGraph from '@/components/SeoOpenGraph';
 
 const allData = [...productListData.metalSpinning, ...productListData.metalDeepDrawing];
@@ -65,17 +65,45 @@ export default function ProductDetail({ product }) {
       ? absolutePublicUrl(selectedImage)
       : absolutePublicUrl(product.images[0]);
 
-  /** 无固定电商标价：不包含 offers，避免触发 Google 对 price / 退货 / 运费等商家摘要的强制校验 */
-  const productJsonLd = {
+  /**
+   * 不使用 Product：Google 要求 Product 富结果必须含 offers / review / aggregateRating 之一。
+   * OEM 无固定价、无站内评价时不应申报 Product，否则会被判为无效富媒体。
+   */
+  const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'Product',
-    '@id': `${canonicalUrl}#product`,
-    name: productName,
-    description: pageDesc,
-    image: product.images.map((src) => (src.startsWith('/') ? absolutePublicUrl(src) : src)),
-    sku: product.product_id,
-    brand: { '@type': 'Brand', name: 'Dashan Metal' },
-    url: canonicalUrl,
+    '@graph': [
+      {
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: t('home', { ns: 'common' }),
+            item: absoluteUrl(i18n.language, '/'),
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: t('products', { ns: 'common' }),
+            item: absoluteUrl(i18n.language, '/products'),
+          },
+          {
+            '@type': 'ListItem',
+            position: 3,
+            name: productName,
+            item: canonicalUrl,
+          },
+        ],
+      },
+      {
+        '@type': 'WebPage',
+        '@id': canonicalUrl,
+        url: canonicalUrl,
+        name: pageTitle,
+        description: pageDesc,
+        isPartOf: { '@type': 'WebSite', name: 'Dashan Metal', url: SITE_BASE },
+      },
+    ],
   };
 
   return (
@@ -88,7 +116,7 @@ export default function ProductDetail({ product }) {
           <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
         ))}
         <SeoOpenGraph url={canonicalUrl} title={pageTitle} description={pageDesc} image={ogImage} locale={i18n.language} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </Head>
       <Header />
       <h1 className="sr-only">{t('detail-h1', {ns: 'product-detail', productName: t(product.name, {ns: 'product-list'})})}</h1>
