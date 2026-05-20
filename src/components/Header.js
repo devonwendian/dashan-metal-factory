@@ -13,17 +13,19 @@ export default function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const closeMenu = () => setIsMenuOpen(false);
+
   return (
     <>
       <header className="flex justify-between items-center shadow-md">
         <nav className="bg-white text-gray-800 py-2 px-6 w-full shadow-sm">
           <div className="container mx-auto flex justify-between items-center">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 min-w-0">
               <Image
                 src={logo}
                 alt={t('logo_alt')}
                 width={80}
-                className="rounded"
+                className="rounded shrink-0"
               />
               <h2
                 role="heading"
@@ -35,6 +37,7 @@ export default function Header() {
             </div>
             <div className="flex items-center">
               <button
+                type="button"
                 className="lg:hidden p-2 text-gray-800 hover:text-blue-600"
                 onClick={toggleMenu}
                 aria-label={t('toggle_menu')}
@@ -57,39 +60,48 @@ export default function Header() {
               <div
                 className={`${
                   isMenuOpen ? 'block' : 'hidden'
-                } lg:flex lg:items-center lg:space-x-4 absolute lg:static top-16 right-6 lg:right-auto bg-white lg:bg-transparent shadow-lg lg:shadow-none p-4 lg:p-0 rounded-lg lg:rounded-none z-50`}
+                } lg:flex lg:items-center lg:gap-4 absolute lg:static top-16 right-6 lg:right-auto bg-white lg:bg-transparent shadow-lg lg:shadow-none p-4 lg:p-0 rounded-lg lg:rounded-none z-50`}
               >
                 <Link
                   href="/"
                   className="block lg:inline hover:text-blue-600 transition py-2 lg:py-0"
+                  onClick={closeMenu}
                 >
                   {t('home')}
                 </Link>
                 <Link
                   href="/products"
                   className="block lg:inline hover:text-blue-600 transition py-2 lg:py-0"
+                  onClick={closeMenu}
                 >
                   {t('products')}
                 </Link>
                 <Link
                   href="/about"
                   className="block lg:inline hover:text-blue-600 transition py-2 lg:py-0"
+                  onClick={closeMenu}
                 >
                   {t('about')}
                 </Link>
                 <Link
                   href="/contact"
                   className="block lg:inline hover:text-blue-600 transition py-2 lg:py-0"
+                  onClick={closeMenu}
                 >
                   {t('contact')}
                 </Link>
                 <Link
                   href="/knowledge"
                   className="block lg:inline hover:text-blue-600 transition py-2 lg:py-0"
+                  onClick={closeMenu}
                 >
                   {t('Metal Forming Knowledge')}
                 </Link>
-                <LanguageSwitcher />
+                <div
+                  className="mt-3 pt-3 border-t border-gray-200 lg:mt-0 lg:pt-0 lg:border-t-0 lg:pl-1"
+                >
+                  <LanguageSwitcher />
+                </div>
               </div>
             </div>
           </div>
