@@ -1,4 +1,4 @@
-const FALLBACK_ORDER = ['en', 'zh', 'ja', 'es'];
+const FALLBACK_ORDER = ['en', 'zh', 'ja', 'es', 'ko'];
 
 /**
  * @param {Record<string, string>|undefined|null} record

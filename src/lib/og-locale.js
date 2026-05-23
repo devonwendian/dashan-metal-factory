@@ -4,6 +4,7 @@ export const OG_LOCALE_BY_LANG = {
   zh: 'zh_CN',
   ja: 'ja_JP',
   es: 'es_ES',
+  ko: 'ko_KR',
 };
 
 export function ogLocaleForLang(lang) {

@@ -40,7 +40,7 @@ export default function Home() {
       telephone: '+86-18576639259',
       contactType: 'sales',
       email: 'wendian1989@gmail.com',
-      availableLanguage: ['English', 'Chinese', 'Japanese', 'Spanish'],
+      availableLanguage: ['English', 'Chinese', 'Japanese', 'Spanish', 'Korean'],
     },
   };
 
