@@ -68,15 +68,24 @@ export default function ContactPage() {
                     </a>
                   </div>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <FaEnvelope className="text-blue-600" size={24} />
-                  <a
-                    href="mailto:wendian1989@gmail.com"
-                    className="text-gray-700 hover:text-blue-600 text-lg"
-                    aria-label={t('contact.email')}
-                  >
-                    wendian1989@gmail.com
-                  </a>
+                <div className="flex items-start space-x-3">
+                  <FaEnvelope className="text-blue-600 mt-1 shrink-0" size={24} />
+                  <div>
+                    <a
+                      href="mailto:18675548079@163.com"
+                      className="text-gray-700 hover:text-blue-600 text-lg block"
+                      aria-label={t('contact.email')}
+                    >
+                      18675548079@163.com
+                    </a>
+                    <a
+                      href="mailto:wendian1989@gmail.com"
+                      className="text-gray-700 hover:text-blue-600 text-lg block mt-1"
+                      aria-label={t('contact.email')}
+                    >
+                      wendian1989@gmail.com
+                    </a>
+                  </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <FaWeixin className="text-blue-600" size={24} />

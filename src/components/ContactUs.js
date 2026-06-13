@@ -50,15 +50,24 @@ export default function ContactUs() {
               </a>
             </li>
             {/* 邮箱 */}
-            <li className="flex items-center space-x-3">
-              <FaEnvelope className="text-blue-600" size={20} />
-              <a
-                href="mailto:wendian1989@gmail.com"
-                className="text-gray-700 hover:text-blue-600"
-                aria-label="Email us"
-              >
-                wendian1989@gmail.com
-              </a>
+            <li className="flex items-start space-x-3">
+              <FaEnvelope className="text-blue-600 mt-0.5 shrink-0" size={20} />
+              <div>
+                <a
+                  href="mailto:18675548079@163.com"
+                  className="text-gray-700 hover:text-blue-600 block"
+                  aria-label="Email us"
+                >
+                  18675548079@163.com
+                </a>
+                <a
+                  href="mailto:wendian1989@gmail.com"
+                  className="text-gray-700 hover:text-blue-600 block mt-1"
+                  aria-label="Email us"
+                >
+                  wendian1989@gmail.com
+                </a>
+              </div>
             </li>
             {/* 微信 1 */}
             <li className="flex items-center space-x-3">
