@@ -17,13 +17,14 @@ export default function KnowledgeList({ }) {
   const alternates = alternateHrefLangLinks('/knowledge');
   const firstImage = knowledgeListData[0]?.image;
   const ogImage = firstImage ? absolutePublicUrl(firstImage) : absolutePublicUrl('/images/workshop-areas/cnc-spinning-1.jpeg');
+  const siteName = t('site_name', { ns: 'common' });
   const listJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     name: t('title', { ns: 'knowledge' }),
     description: t('description', { ns: 'knowledge' }),
     url: canonicalUrl,
-    isPartOf: { '@type': 'WebSite', url: SITE_BASE },
+    isPartOf: { '@type': 'WebSite', name: siteName, url: SITE_BASE },
   };
 
   return (
@@ -41,6 +42,7 @@ export default function KnowledgeList({ }) {
           description={t('description', { ns: 'knowledge' })}
           image={ogImage}
           locale={i18n.language}
+          siteName={siteName}
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(listJsonLd) }} />
       </Head>

@@ -9,18 +9,20 @@ import { absoluteUrl, alternateHrefLangLinks, absolutePublicUrl } from '@/lib/i1
 import SeoOpenGraph from '@/components/SeoOpenGraph';
 
 export default function ContactPage() {
-  const { t, i18n } = useTranslation('contact');
+  const { t, i18n } = useTranslation(['contact', 'common']);
+  const siteName = t('site_name', { ns: 'common' });
   const isChinese = i18n.language === 'zh';
   const mapImage = '/images/factory-map.png';
   const mapAlt = isChinese ? t('contact.map_alt_zh') : t('contact.map_alt_en');
   const canonicalUrl = absoluteUrl(i18n.language, '/contact');
   const alternates = alternateHrefLangLinks('/contact');
   const ogImage = absolutePublicUrl('/images/factory-map.png');
+  const pageTitle = `${t('title', { ns: 'contact' })} | ${siteName}`;
 
   return (
     <>
       <Head>
-        <title>{t('title', {ns: 'contact'})}</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={t('description')} />
         <link rel="canonical" href={canonicalUrl} />
         {alternates.map(({ hrefLang, href }) => (
@@ -28,10 +30,11 @@ export default function ContactPage() {
         ))}
         <SeoOpenGraph
           url={canonicalUrl}
-          title={t('title', { ns: 'contact' })}
+          title={pageTitle}
           description={t('description')}
           image={ogImage}
           locale={i18n.language}
+          siteName={siteName}
         />
       </Head>
       <Header />

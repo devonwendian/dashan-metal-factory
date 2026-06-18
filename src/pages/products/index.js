@@ -60,8 +60,10 @@ export default function ProductsPage() {
   const alternates = alternateHrefLangLinks('/products', pageQuery);
   const prevQuery = currentPage === 2 ? '' : `page=${currentPage - 1}`;
   const nextQuery = `page=${currentPage + 1}`;
+  const siteName = t('site_name', { ns: 'common' });
   const listTitle = t('title', { ns: 'product-list' });
   const listDesc = t('description', { ns: 'product-list' });
+  const pageTitle = `${listTitle} | ${siteName}`;
   const ogImage = absolutePublicUrl('/images/workshop-areas/stamping-area-2.jpeg');
   const collectionJsonLd = {
     '@context': 'https://schema.org',
@@ -69,13 +71,13 @@ export default function ProductsPage() {
     name: listTitle,
     description: listDesc,
     url: canonicalUrl,
-    isPartOf: { '@type': 'WebSite', url: SITE_BASE },
+    isPartOf: { '@type': 'WebSite', name: siteName, url: SITE_BASE },
   };
 
   return (
     <>
       <Head>
-        <title>{listTitle}</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={listDesc} />
         <link rel="canonical" href={canonicalUrl} />
         {alternates.map(({ hrefLang, href }) => (
@@ -89,10 +91,11 @@ export default function ProductsPage() {
         )}
         <SeoOpenGraph
           url={canonicalUrl}
-          title={listTitle}
+          title={pageTitle}
           description={listDesc}
           image={ogImage}
           locale={i18n.language}
+          siteName={siteName}
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionJsonLd) }} />
       </Head>

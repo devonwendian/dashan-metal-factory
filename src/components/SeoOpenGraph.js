@@ -3,9 +3,9 @@ import { ogLocaleForLang } from '@/lib/og-locale';
 
 /**
  * Open Graph + Twitter Card (inside next/head).
- * @param {{ url: string; title: string; description: string; image?: string; locale: string; type?: string }} props
+ * @param {{ url: string; title: string; description: string; image?: string; locale: string; type?: string; siteName?: string }} props
  */
-export default function SeoOpenGraph({ url, title, description, image, locale, type = 'website' }) {
+export default function SeoOpenGraph({ url, title, description, image, locale, type = 'website', siteName }) {
   const primary = ogLocaleForLang(locale);
 
   return (
@@ -14,6 +14,7 @@ export default function SeoOpenGraph({ url, title, description, image, locale, t
       <meta property="og:url" content={url} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
+      {siteName ? <meta property="og:site_name" content={siteName} /> : null}
       <meta property="og:locale" content={primary} />
       {I18N_LOCALES.filter((l) => l !== locale).map((l) => (
         <meta key={l} property="og:locale:alternate" content={ogLocaleForLang(l)} />

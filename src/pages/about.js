@@ -10,25 +10,27 @@ import SeoOpenGraph from '@/components/SeoOpenGraph';
 const factoryImage = '/images/factory-intro/factory-gate.jpg';
 
 export default function AboutPage() {
-  const { t, i18n } = useTranslation('about');
+  const { t, i18n } = useTranslation(['about', 'common']);
+  const siteName = t('site_name', { ns: 'common' });
 
   const canonicalUrl = absoluteUrl(i18n.language, '/about');
   const alternates = alternateHrefLangLinks('/about');
   const ogImage = absolutePublicUrl(factoryImage);
+  const pageTitle = `${t('about_page_title')} | ${siteName}`;
   const webPageJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
     name: t('about_page_title'),
     description: t('about_page_description'),
     url: canonicalUrl,
-    isPartOf: { '@type': 'WebSite', name: 'Dashan Metal', url: SITE_BASE },
+    isPartOf: { '@type': 'WebSite', name: siteName, url: SITE_BASE },
     primaryImageOfPage: { '@type': 'ImageObject', url: ogImage },
   };
 
   return (
     <>
       <Head>
-        <title>{t('about_page_title')}</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={t('about_page_description')} />
         <meta name="keywords" content={t('about_page_keywords')} />
         <link rel="canonical" href={canonicalUrl} />
@@ -37,10 +39,11 @@ export default function AboutPage() {
         ))}
         <SeoOpenGraph
           url={canonicalUrl}
-          title={t('about_page_title')}
+          title={pageTitle}
           description={t('about_page_description')}
           image={ogImage}
           locale={i18n.language}
+          siteName={siteName}
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(webPageJsonLd) }} />
       </Head>

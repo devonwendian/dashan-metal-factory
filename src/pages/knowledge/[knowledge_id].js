@@ -10,7 +10,8 @@ import { pickLocalized } from '@/lib/pickLocalized';
 import SeoOpenGraph from '@/components/SeoOpenGraph';
 
 export default function KnowledgeDetail({ knowledge }) {
-  const { i18n } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
+  const siteName = t('site_name');
 
   const detailPath = `/knowledge/${knowledge.knowledge_id}`;
   const canonicalUrl = absoluteUrl(i18n.language, detailPath);
@@ -19,6 +20,7 @@ export default function KnowledgeDetail({ knowledge }) {
   const description = pickLocalized(knowledge.description, i18n.language);
   const contentHtml = pickLocalized(knowledge.content, i18n.language);
   const ogImage = knowledge.image ? absolutePublicUrl(knowledge.image) : undefined;
+  const pageTitle = `${title} | ${siteName}`;
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -27,13 +29,13 @@ export default function KnowledgeDetail({ knowledge }) {
     image: ogImage ? [ogImage] : undefined,
     datePublished: knowledge.date,
     mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
-    publisher: { '@type': 'Organization', name: 'Dashan Metal', url: SITE_BASE },
+    publisher: { '@type': 'Organization', name: siteName, url: SITE_BASE },
   };
 
   return (
     <>
       <Head>
-        <title>{title}</title>
+        <title>{pageTitle}</title>
         <meta name="description" content={description} />
         <link rel="canonical" href={canonicalUrl} />
         {alternates.map(({ hrefLang, href }) => (
@@ -41,11 +43,12 @@ export default function KnowledgeDetail({ knowledge }) {
         ))}
         <SeoOpenGraph
           url={canonicalUrl}
-          title={title}
+          title={pageTitle}
           description={description}
           image={ogImage}
           locale={i18n.language}
           type="article"
+          siteName={siteName}
         />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       </Head>

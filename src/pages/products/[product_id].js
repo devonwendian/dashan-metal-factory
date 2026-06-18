@@ -57,8 +57,9 @@ export default function ProductDetail({ product }) {
   const detailPath = `/products/${product.product_id}`;
   const canonicalUrl = absoluteUrl(i18n.language, detailPath);
   const alternates = alternateHrefLangLinks(detailPath);
+  const siteName = t('site_name', { ns: 'common' });
   const productName = t(product.name, { ns: 'product-list' });
-  const pageTitle = t('title', { ns: 'product-detail', productName });
+  const pageTitle = `${t('title', { ns: 'product-detail', productName })} | ${siteName}`;
   const pageDesc = t('description', { ns: 'product-detail', productName });
   const ogImage =
     typeof selectedImage === 'string' && selectedImage.startsWith('/')
@@ -101,7 +102,7 @@ export default function ProductDetail({ product }) {
         url: canonicalUrl,
         name: pageTitle,
         description: pageDesc,
-        isPartOf: { '@type': 'WebSite', name: 'Dashan Metal', url: SITE_BASE },
+        isPartOf: { '@type': 'WebSite', name: siteName, url: SITE_BASE },
       },
     ],
   };
@@ -115,7 +116,7 @@ export default function ProductDetail({ product }) {
         {alternates.map(({ hrefLang, href }) => (
           <link key={hrefLang} rel="alternate" hrefLang={hrefLang} href={href} />
         ))}
-        <SeoOpenGraph url={canonicalUrl} title={pageTitle} description={pageDesc} image={ogImage} locale={i18n.language} />
+        <SeoOpenGraph url={canonicalUrl} title={pageTitle} description={pageDesc} image={ogImage} locale={i18n.language} siteName={siteName} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </Head>
       <Header />
