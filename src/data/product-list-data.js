@@ -369,6 +369,20 @@ const productListData = {
   ],
   "metalDeepDrawing": [
       {
+      index: 'product220',
+      product_id: 'metal-stamping-product220',
+      name: 'Deep Drawing Fabrication of Stainless Steel Square Box Housings for Electrical Components',
+      category: ['Metal Stamping Parts', 'Metal Deep Drawing Parts'],
+      images: [
+        '/images/products/metal-deep-drawing/product220/metal-deep-drawing-1.jpeg',
+        '/images/products/metal-deep-drawing/product220/metal-deep-drawing-2.jpeg',
+        '/images/products/metal-deep-drawing/product220/metal-deep-drawing-3.jpeg',
+        '/images/products/metal-deep-drawing/product220/metal-deep-drawing-4.jpeg',
+        '/images/products/metal-deep-drawing/product220/metal-deep-drawing-5.jpeg',
+      ],
+      video: "",
+    },
+      {
       index: 'product208',
       product_id: 'metal-stamping-product208',
       name: 'Automotive Mesh Cover Stamping Processing',
