@@ -369,6 +369,20 @@ const productListData = {
   ],
   "metalDeepDrawing": [
       {
+      index: 'product239',
+      product_id: 'metal-stamping-product239',
+      name: 'Irregular Deep Drawing of 201 Stainless Steel Slanted Electrical Appliance Covers',
+      category: ['Metal Stamping Parts', 'Metal Deep Drawing Parts'],
+      images: [
+        '/images/products/metal-deep-drawing/product239/metal-deep-drawing-1.jpeg',
+        '/images/products/metal-deep-drawing/product239/metal-deep-drawing-2.jpeg',
+        '/images/products/metal-deep-drawing/product239/metal-deep-drawing-3.jpeg',
+        '/images/products/metal-deep-drawing/product239/metal-deep-drawing-4.jpeg',
+        '/images/products/metal-deep-drawing/product239/metal-deep-drawing-5.jpeg',
+      ],
+      video: "",
+    },
+      {
       index: 'product220',
       product_id: 'metal-stamping-product220',
       name: 'Deep Drawing Fabrication of Stainless Steel Square Box Housings for Electrical Components',
