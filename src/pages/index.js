@@ -73,7 +73,6 @@ export default function Home() {
       </Head>
       <Header />
       <main className="text-center">
-        <h1 className="sr-only">{t('home_h1')}</h1>
         <BannerCarousel />
         <MainProducts />
         <LargeMetalProducts />

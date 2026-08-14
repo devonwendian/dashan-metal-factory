@@ -9,16 +9,19 @@ const BannerCarousel = () => {
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef(null);
   const router = useRouter();
-  const { t } = useTranslation('banner');
+  const { t } = useTranslation(['banner', 'home']);
 
 // 轮播数据
 const banners = [
   {
     id: 1,
     imageUrl: '/images/banner/banner1.jpeg',
-    altText: t('30 Years Experience'),
-    title: t('30 Years Experience'),
+    altText: t('home_h1', { ns: 'home' }),
+    /** Only the first slide uses <h1> — keeps SEO without an extra grey title bar. */
+    isHero: true,
+    title: t('home_h1', { ns: 'home' }),
     description: [
+      t('30 Years Experience'),
       t('ISO9001'),
       t('Large-Scale'),
       t('100 machines'),
@@ -28,6 +31,7 @@ const banners = [
     id: 2,
     imageUrl: '/images/banner/banner2.jpeg',
     altText: t('CNC Spinning Machines'),
+    isHero: false,
     title: t('CNC Spinning Machines'),
     description: [
       t('Complex Metal Forming'),
@@ -38,6 +42,7 @@ const banners = [
     id: 3,
     imageUrl: '/images/banner/banner3.jpeg',
     altText: t('Hydraulic Presses'),
+    isHero: false,
     title: t('Hydraulic Presses'),
     description: [
       t('Self-Owned'),
@@ -124,22 +129,25 @@ const banners = [
           />
 <div className="absolute inset-0 bg-black bg-opacity-60 flex items-center justify-start">
   <div className="text-left text-white px-6 md:px-12 w-full max-w-4xl mx-auto">
-    {/* 标题靠左，加粗并添加下划线 */}
-    <h2 className="text-4xl md:text-5xl font-extrabold mb-8 leading-tight drop-shadow-lg animate-fadeIn">
-      {banner.title}
-      <div className="w-20 h-1 bg-yellow-500 mt-2"></div>
-    </h2>
-    {/* 描述居中，优化圆点和间距 */}
-    <div className="text-xl md:text-2xl space-y-6 max-w-xl mx-auto animate-fadeIn animate-delay-200">
+    {banner.isHero ? (
+      <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-8 leading-tight drop-shadow-lg animate-fadeIn">
+        {banner.title}
+        <span className="block w-20 h-1 bg-yellow-500 mt-2" aria-hidden="true" />
+      </h1>
+    ) : (
+      <p className="text-4xl md:text-5xl font-extrabold mb-8 leading-tight drop-shadow-lg animate-fadeIn">
+        {banner.title}
+        <span className="block w-20 h-1 bg-yellow-500 mt-2" aria-hidden="true" />
+      </p>
+    )}
+    <ul className="text-xl md:text-2xl space-y-6 max-w-xl list-none animate-fadeIn animate-delay-200">
       {banner.description.map((desc, i) => (
-        <h2 key={i} className="flex items-center justify-start">
-          <span className="w-3 h-3 bg-yellow-500 rounded-full mr-4"></span>
-          <span>
-            {desc}
-          </span>
-        </h2>
+        <li key={i} className="flex items-center justify-start">
+          <span className="w-3 h-3 bg-yellow-500 rounded-full mr-4 shrink-0" aria-hidden="true" />
+          <span>{desc}</span>
+        </li>
       ))}
-    </div>
+    </ul>
   </div>
 </div>
         </div>

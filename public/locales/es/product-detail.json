@@ -1,7 +1,12 @@
 {
-  "title": "{{productName}} - Dashan Metal Manufacturing",
-  "description": "{{productName}} de precisión en acero inoxidable, hierro, aluminio y más. OEM disponible. Calidad de fábrica con más de 20 años de experiencia.",
-  "detail-h1": "{{productName}} - Detalle del producto",
+  "title": "{{productName}} | Caso de fábrica Dashan Metal",
+  "description": "Foto de caso de fábrica: {{productName}}. Spinning y embutición a medida según planos o muestras. Escríbanos por email.",
+  "detail-h1": "{{productName}} - Caso de fábrica Dashan Metal",
   "product_not_found": "Producto no encontrado",
-  "product_video": "Vídeo del producto"
+  "product_video": "Vídeo del producto",
+  "case_blurb_deep-drawing": "Caso de embutición / estampado relacionado fabricado en nuestra fábrica de Dongguan para un cliente.",
+  "case_blurb_metal-spinning": "Caso de spinning metálico fabricado en nuestra fábrica de Dongguan para un cliente.",
+  "case_custom_note": "Fabricamos piezas no estándar según planos o muestras. Cada proyecto es distinto: envíenos su plano o fotos por correo.",
+  "cta_email_drawing": "Enviar plano por email",
+  "back_to_cases": "Volver a {{category}}"
 }

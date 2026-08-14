@@ -7,4 +7,13 @@ module.exports = {
     // domains: ['localhost'], // 你可以根据实际情况配置
     formats: ['image/webp', 'image/avif'],
   },
+  async redirects() {
+    return [
+      {
+        source: '/products',
+        destination: '/products/deep-drawing',
+        permanent: true,
+      },
+    ];
+  },
 };

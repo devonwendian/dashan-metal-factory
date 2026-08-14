@@ -70,7 +70,7 @@ export default function Header() {
                   {t('home')}
                 </Link>
                 <Link
-                  href="/products"
+                  href="/products/deep-drawing"
                   className="block lg:inline hover:text-blue-600 transition py-2 lg:py-0"
                   onClick={closeMenu}
                 >

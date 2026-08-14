@@ -1,11 +1,8 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import ProductCategoryList from '@/components/ProductCategoryList';
 
-/**
- * /products is redirected in next.config.js to /products/deep-drawing.
- * This page remains as a fallback for static hosting without redirect support.
- */
-export default function ProductsIndexFallback() {
-  return null;
+export default function DeepDrawingProductsPage() {
+  return <ProductCategoryList categorySlug="deep-drawing" />;
 }
 
 export async function getStaticProps({ locale }) {

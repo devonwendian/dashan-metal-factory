@@ -1,7 +1,12 @@
 {
-  "title": "{{productName}} - 大山金属製造",
-  "description": "ステンレス、鉄、アルミなどの精密{{productName}}。OEM対応。20年以上の工場品質。",
-  "detail-h1": "{{productName}} - 製品詳細",
+  "title": "{{productName}} | Dashan Metal 工場事例",
+  "description": "工場事例写真：{{productName}}。図面・サンプルに基づくカスタム金属スピニング／深絞り加工。メールでご相談ください。",
+  "detail-h1": "{{productName}} - Dashan Metal 工場事例",
   "product_not_found": "製品が見つかりません",
-  "product_video": "製品動画"
+  "product_video": "製品動画",
+  "case_blurb_deep-drawing": "東莞工場でお客様向けに製作した深絞り／関連プレスの事例です。",
+  "case_blurb_metal-spinning": "東莞工場でお客様向けに製作した金属スピニングの事例です。",
+  "case_custom_note": "図面またはサンプルに基づく非標準部品を製造します。案件ごとに仕様は異なります。図面・サンプル写真をメールでお送りください。",
+  "cta_email_drawing": "図面をメールで問い合わせ",
+  "back_to_cases": "{{category}}に戻る"
 }

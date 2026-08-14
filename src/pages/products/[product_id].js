@@ -5,12 +5,16 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { useTranslation } from 'next-i18next';
 import productListData from '@/data/product-list-data';
-import { useRouter } from 'next/router';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import ContactUs from '@/components/ContactUs';
 import Head from 'next/head';
 import { I18N_LOCALES, absoluteUrl, alternateHrefLangLinks, absolutePublicUrl, SITE_BASE } from '@/lib/i18n-seo';
 import SeoOpenGraph from '@/components/SeoOpenGraph';
+import {
+  getCategoryPathForProduct,
+  getCategorySlugForProduct,
+  PRODUCT_CATEGORIES,
+} from '@/data/product-categories';
 
 const allData = [...productListData.metalSpinning, ...productListData.metalDeepDrawing];
 
@@ -48,7 +52,6 @@ export async function getStaticProps({ params, locale }) {
 
 export default function ProductDetail({ product }) {
   const { t, i18n } = useTranslation(['common', 'product-detail', 'product-list']);
-  const router = useRouter();
   const [selectedImage, setSelectedImage] = useState(product.images[0]);
 
   if (!product) {
@@ -65,6 +68,10 @@ export default function ProductDetail({ product }) {
     typeof selectedImage === 'string' && selectedImage.startsWith('/')
       ? absolutePublicUrl(selectedImage)
       : absolutePublicUrl(product.images[0]);
+  const categorySlug = getCategorySlugForProduct(product);
+  const categoryPath = getCategoryPathForProduct(product);
+  const categoryConfig = PRODUCT_CATEGORIES[categorySlug];
+  const categoryLabel = t(categoryConfig.tabKey, { ns: 'product-list' });
 
   /**
    * 不使用 Product：Google 要求 Product 富结果必须含 offers / review / aggregateRating 之一。
@@ -85,8 +92,8 @@ export default function ProductDetail({ product }) {
           {
             '@type': 'ListItem',
             position: 2,
-            name: t('products', { ns: 'common' }),
-            item: absoluteUrl(i18n.language, '/products'),
+            name: categoryLabel,
+            item: absoluteUrl(i18n.language, categoryPath),
           },
           {
             '@type': 'ListItem',
@@ -120,7 +127,6 @@ export default function ProductDetail({ product }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }} />
       </Head>
       <Header />
-      <h1 className="sr-only">{t('detail-h1', {ns: 'product-detail', productName: t(product.name, {ns: 'product-list'})})}</h1>
       <div className="min-h-screen bg-gray-50 py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* 面包屑导航 */}
@@ -133,8 +139,8 @@ export default function ProductDetail({ product }) {
               </li>
               <li>/</li>
               <li>
-                <Link href="/products" className="hover:text-blue-600">
-                  {t('products', {ns: 'common'})}
+                <Link href={categoryPath} className="hover:text-blue-600">
+                  {categoryLabel}
                 </Link>
               </li>
               <li>/</li>
@@ -150,11 +156,11 @@ export default function ProductDetail({ product }) {
               <div className="w-full mb-4 rounded-lg overflow-hidden shadow-md">
                 <Image
                   src={selectedImage}
-                  alt={`${product.name} main image`}
-                  width={600} // 明确宽度
-                  height={600} // 明确高度，假设图片接近正方形
-                  className="w-full h-auto object-contain" // 使用 object-contain 确保完整显示
-                  priority // 首屏关键图片
+                  alt={productName}
+                  width={600}
+                  height={600}
+                  className="w-full h-auto object-contain"
+                  priority
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
                 />
               </div>
@@ -171,7 +177,7 @@ export default function ProductDetail({ product }) {
                   >
                     <Image
                       src={img}
-                      alt={`${product.name} thumbnail ${index + 1}`}
+                      alt={`${productName} ${index + 1}`}
                       fill
                       className="object-cover"
                       loading="lazy"
@@ -190,7 +196,7 @@ export default function ProductDetail({ product }) {
                   <div className="relative w-full" style={{ paddingTop: '56.25%' }}>
                     <iframe
                       src={product.video}
-                      title={`${product.name} video`}
+                      title={`${productName} video`}
                       className="absolute top-0 left-0 w-full h-full rounded-lg"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
@@ -200,11 +206,31 @@ export default function ProductDetail({ product }) {
               )}
             </div>
 
-            {/* 右侧：产品信息 */}
+            {/* 右侧：案例说明 + 询价 */}
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                {t(product.name, {ns: 'product-list'})}
-              </h2>
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                {productName}
+              </h1>
+              <p className="text-gray-600 leading-relaxed mb-3">
+                {t(`case_blurb_${categorySlug}`, { ns: 'product-detail' })}
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                {t('case_custom_note', { ns: 'product-detail' })}
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <a
+                  href="mailto:18675548079@163.com"
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
+                >
+                  {t('cta_email_drawing', { ns: 'product-detail' })}
+                </a>
+                <Link
+                  href={categoryPath}
+                  className="inline-flex items-center justify-center px-5 py-2.5 rounded-md border border-gray-300 bg-white text-gray-800 font-medium hover:bg-gray-50 transition"
+                >
+                  {t('back_to_cases', { ns: 'product-detail', category: categoryLabel })}
+                </Link>
+              </div>
             </div>
           </div>
         </div>
