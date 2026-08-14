@@ -44,6 +44,8 @@ const ManufacturingProcessesVideos = () => {
     },
   ];
 
+  const workshopNote = t('video_workshop_note');
+
   return (
     <section className="py-8">
       <div className="container mx-auto px-4">
@@ -52,7 +54,12 @@ const ManufacturingProcessesVideos = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {videos.map((video) => (
-            <VideoCard key={video.title} video={video} useBilibili={useBilibili} />
+            <VideoCard
+              key={video.title}
+              video={video}
+              useBilibili={useBilibili}
+              workshopNote={workshopNote}
+            />
           ))}
         </div>
         {isZh ? (
@@ -72,7 +79,7 @@ const ManufacturingProcessesVideos = () => {
   );
 };
 
-const VideoCard = ({ video, useBilibili }) => {
+const VideoCard = ({ video, useBilibili, workshopNote }) => {
   const [isVisible, setIsVisible] = useState(false);
   const videoRef = useRef(null);
 
@@ -112,10 +119,10 @@ const VideoCard = ({ video, useBilibili }) => {
             loading="lazy"
           />
         )}
-        <figcaption className="sr-only">{video.description}</figcaption>
       </figure>
       <div className="p-4 text-center">
-        <h3 className="text-xl font-semibold text-gray-800 mb-2">{video.title}</h3>
+        <h3 className="text-xl font-semibold text-gray-800 mb-1">{video.title}</h3>
+        <p className="text-sm text-gray-500">{workshopNote}</p>
       </div>
     </div>
   );

@@ -1,6 +1,7 @@
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Image from 'next/image';
+import Link from 'next/link';
 import Head from 'next/head';
 import knowledgeListData from '@/data/knowledge-list-data';
 import Header from '@/components/Header';
@@ -8,6 +9,14 @@ import Footer from '@/components/Footer';
 import { absoluteUrl, alternateHrefLangLinks, I18N_LOCALES, absolutePublicUrl, SITE_BASE } from '@/lib/i18n-seo';
 import { pickLocalized } from '@/lib/pickLocalized';
 import SeoOpenGraph from '@/components/SeoOpenGraph';
+
+/** Map knowledge articles to the matching factory case gallery. */
+function relatedCasesPath(knowledgeId) {
+  if (typeof knowledgeId === 'string' && knowledgeId.includes('spinning')) {
+    return '/products/metal-spinning';
+  }
+  return '/products/deep-drawing';
+}
 
 export default function KnowledgeDetail({ knowledge }) {
   const { t, i18n } = useTranslation('common');
@@ -21,6 +30,11 @@ export default function KnowledgeDetail({ knowledge }) {
   const contentHtml = pickLocalized(knowledge.content, i18n.language);
   const ogImage = knowledge.image ? absolutePublicUrl(knowledge.image) : undefined;
   const pageTitle = `${title} | ${siteName}`;
+  const casesPath = relatedCasesPath(knowledge.knowledge_id);
+  const casesLabel =
+    casesPath === '/products/metal-spinning'
+      ? t('nav_metal_spinning')
+      : t('nav_deep_drawing');
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -73,6 +87,25 @@ export default function KnowledgeDetail({ knowledge }) {
             className="prose prose-lg text-gray-700 max-w-3xl mx-auto"
             dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
+
+          <aside className="mt-12 max-w-3xl mx-auto rounded-lg border border-gray-200 bg-gray-50 p-6 text-center">
+            <p className="text-gray-700 mb-2 font-medium">{t('knowledge_cta_title')}</p>
+            <p className="text-gray-600 text-sm mb-5">{t('knowledge_cta_body')}</p>
+            <div className="flex flex-wrap justify-center gap-3">
+              <Link
+                href={casesPath}
+                className="inline-flex px-5 py-2.5 rounded-md bg-blue-600 text-white text-sm font-medium hover:bg-blue-700 transition"
+              >
+                {t('knowledge_cta_cases', { category: casesLabel })}
+              </Link>
+              <a
+                href="mailto:18675548079@163.com"
+                className="inline-flex px-5 py-2.5 rounded-md border border-gray-300 bg-white text-gray-800 text-sm font-medium hover:bg-gray-100 transition"
+              >
+                {t('knowledge_cta_email')}
+              </a>
+            </div>
+          </aside>
         </div>
       </article>
       <Footer />
