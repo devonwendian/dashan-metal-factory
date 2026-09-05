@@ -8,5 +8,12 @@
   "case_blurb_metal-spinning": "東莞工場でお客様向けに製作した金属スピニングの事例です。",
   "case_custom_note": "図面またはサンプルに基づく非標準部品を製造します。案件ごとに仕様は異なります。図面・サンプル写真をメールでお送りください。",
   "cta_email_drawing": "図面をメールで問い合わせ",
-  "back_to_cases": "{{category}}に戻る"
+  "back_to_cases": "{{category}}に戻る",
+  "spec_dimensions": "寸法",
+  "spec_material": "材質",
+  "spec_process": "製造工程",
+  "spec_surface": "表面処理",
+  "spec_application": "用途",
+  "spec_description": "説明",
+  "spec_heading": "事例仕様"
 }

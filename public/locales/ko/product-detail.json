@@ -8,5 +8,12 @@
   "case_blurb_metal-spinning": "동관 공장에서 고객을 위해 제작한 금속 스피닝 사례입니다.",
   "case_custom_note": "도면 또는 샘플로 비규격 부품을 제작합니다. 프로젝트마다 사양이 다릅니다. 도면·샘플 사진을 이메일로 보내 주세요.",
   "cta_email_drawing": "도면 이메일 문의",
-  "back_to_cases": "{{category}}(으)로 돌아가기"
+  "back_to_cases": "{{category}}(으)로 돌아가기",
+  "spec_dimensions": "치수",
+  "spec_material": "재질",
+  "spec_process": "제조 공정",
+  "spec_surface": "표면 처리",
+  "spec_application": "적용 분야",
+  "spec_description": "설명",
+  "spec_heading": "사례 사양"
 }

@@ -8,5 +8,12 @@
   "case_blurb_metal-spinning": "Caso de spinning metálico fabricado en nuestra fábrica de Dongguan para un cliente.",
   "case_custom_note": "Fabricamos piezas no estándar según planos o muestras. Cada proyecto es distinto: envíenos su plano o fotos por correo.",
   "cta_email_drawing": "Enviar plano por email",
-  "back_to_cases": "Volver a {{category}}"
+  "back_to_cases": "Volver a {{category}}",
+  "spec_dimensions": "Dimensiones",
+  "spec_material": "Material",
+  "spec_process": "Proceso de fabricación",
+  "spec_surface": "Tratamiento superficial",
+  "spec_application": "Aplicación",
+  "spec_description": "Descripción",
+  "spec_heading": "Detalles del caso"
 }

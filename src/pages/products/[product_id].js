@@ -7,9 +7,11 @@ import { useTranslation } from 'next-i18next';
 import productListData from '@/data/product-list-data';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import ContactUs from '@/components/ContactUs';
+import ProductCaseSpecs from '@/components/ProductCaseSpecs';
 import Head from 'next/head';
 import { I18N_LOCALES, absoluteUrl, alternateHrefLangLinks, absolutePublicUrl, SITE_BASE } from '@/lib/i18n-seo';
 import SeoOpenGraph from '@/components/SeoOpenGraph';
+import { getProductSpecRows, buildSpecDescription } from '@/data/product-specs';
 import {
   getCategoryPathForProduct,
   getCategorySlugForProduct,
@@ -62,16 +64,18 @@ export default function ProductDetail({ product }) {
   const alternates = alternateHrefLangLinks(detailPath);
   const siteName = t('site_name', { ns: 'common' });
   const productName = t(product.name, { ns: 'product-list' });
-  const pageTitle = `${t('title', { ns: 'product-detail', productName })} | ${siteName}`;
-  const pageDesc = t('description', { ns: 'product-detail', productName });
-  const ogImage =
-    typeof selectedImage === 'string' && selectedImage.startsWith('/')
-      ? absolutePublicUrl(selectedImage)
-      : absolutePublicUrl(product.images[0]);
   const categorySlug = getCategorySlugForProduct(product);
   const categoryPath = getCategoryPathForProduct(product);
   const categoryConfig = PRODUCT_CATEGORIES[categorySlug];
   const categoryLabel = t(categoryConfig.tabKey, { ns: 'product-list' });
+  const specRows = getProductSpecRows(product.product_id, i18n.language);
+  const specMeta = buildSpecDescription(product.product_id, i18n.language, productName);
+  const pageTitle = `${t('title', { ns: 'product-detail', productName })} | ${siteName}`;
+  const pageDesc = specMeta || t('description', { ns: 'product-detail', productName });
+  const ogImage =
+    typeof selectedImage === 'string' && selectedImage.startsWith('/')
+      ? absolutePublicUrl(selectedImage)
+      : absolutePublicUrl(product.images[0]);
 
   /**
    * 不使用 Product：Google 要求 Product 富结果必须含 offers / review / aggregateRating 之一。
@@ -167,7 +171,7 @@ export default function ProductDetail({ product }) {
 
               {/* 缩略图 */}
               <div className="grid grid-cols-4 sm:grid-cols-5 gap-2">
-                {product.images.slice(0, 5).map((img, index) => (
+                {product.images.map((img, index) => (
                   <button
                     key={index}
                     onClick={() => setSelectedImage(img)}
@@ -211,10 +215,13 @@ export default function ProductDetail({ product }) {
               <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
                 {productName}
               </h1>
-              <p className="text-gray-600 leading-relaxed mb-3">
-                {t(`case_blurb_${categorySlug}`, { ns: 'product-detail' })}
-              </p>
-              <p className="text-gray-600 leading-relaxed mb-6">
+              <ProductCaseSpecs productId={product.product_id} locale={i18n.language} />
+              {!specRows.length && (
+                <p className="text-gray-600 leading-relaxed mb-3">
+                  {t(`case_blurb_${categorySlug}`, { ns: 'product-detail' })}
+                </p>
+              )}
+              <p className="text-gray-600 leading-relaxed mb-6 text-sm">
                 {t('case_custom_note', { ns: 'product-detail' })}
               </p>
               <div className="flex flex-wrap gap-3">

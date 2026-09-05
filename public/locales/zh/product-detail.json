@@ -8,5 +8,12 @@
   "case_blurb_metal-spinning": "本页为东莞工厂为客户加工的金属旋压实拍案例。",
   "case_custom_note": "我们按图纸或样品做非标件，每单参数不同。请来邮发送图纸或样品照片沟通可行性。",
   "cta_email_drawing": "发送图纸询价",
-  "back_to_cases": "返回{{category}}"
+  "back_to_cases": "返回{{category}}",
+  "spec_dimensions": "尺寸",
+  "spec_material": "材质",
+  "spec_process": "制造工艺",
+  "spec_surface": "表面处理",
+  "spec_application": "应用场景",
+  "spec_description": "说明",
+  "spec_heading": "案例参数"
 }

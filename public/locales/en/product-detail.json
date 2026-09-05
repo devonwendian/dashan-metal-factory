@@ -8,5 +8,12 @@
   "case_blurb_metal-spinning": "This is a metal spinning case manufactured in our Dongguan factory for a customer project.",
   "case_custom_note": "We produce non-standard parts from drawings or samples. Details vary by project—email us your drawing or sample photos to discuss feasibility.",
   "cta_email_drawing": "Email drawing for quote",
-  "back_to_cases": "Back to {{category}}"
+  "back_to_cases": "Back to {{category}}",
+  "spec_dimensions": "Dimensions",
+  "spec_material": "Material",
+  "spec_process": "Manufacturing process",
+  "spec_surface": "Surface treatment",
+  "spec_application": "Application",
+  "spec_description": "Description",
+  "spec_heading": "Case details"
 }
