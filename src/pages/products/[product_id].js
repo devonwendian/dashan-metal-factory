@@ -226,7 +226,7 @@ export default function ProductDetail({ product }) {
               </p>
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="mailto:18675548079@163.com"
+                  href="mailto:wendian1989@gmail.com"
                   className="inline-flex items-center justify-center px-5 py-2.5 rounded-md bg-blue-600 text-white font-medium hover:bg-blue-700 transition"
                 >
                   {t('cta_email_drawing', { ns: 'product-detail' })}

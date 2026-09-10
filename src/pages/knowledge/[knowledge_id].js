@@ -99,7 +99,7 @@ export default function KnowledgeDetail({ knowledge }) {
                 {t('knowledge_cta_cases', { category: casesLabel })}
               </Link>
               <a
-                href="mailto:18675548079@163.com"
+                href="mailto:wendian1989@gmail.com"
                 className="inline-flex px-5 py-2.5 rounded-md border border-gray-300 bg-white text-gray-800 text-sm font-medium hover:bg-gray-100 transition"
               >
                 {t('knowledge_cta_email')}

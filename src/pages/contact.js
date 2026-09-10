@@ -75,18 +75,18 @@ export default function ContactPage() {
                   <FaEnvelope className="text-blue-600 mt-1 shrink-0" size={24} />
                   <div>
                     <a
-                      href="mailto:18675548079@163.com"
+                      href="mailto:wendian1989@gmail.com"
                       className="text-gray-700 hover:text-blue-600 text-lg block"
                       aria-label={t('contact.email')}
                     >
-                      18675548079@163.com
+                      wendian1989@gmail.com
                     </a>
                     <a
-                      href="mailto:wendian1989@gmail.com"
+                      href="mailto:18675548079@163.com"
                       className="text-gray-700 hover:text-blue-600 text-lg block mt-1"
                       aria-label={t('contact.email')}
                     >
-                      wendian1989@gmail.com
+                      18675548079@163.com
                     </a>
                   </div>
                 </div>

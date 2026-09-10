@@ -54,18 +54,18 @@ export default function ContactUs() {
               <FaEnvelope className="text-blue-600 mt-0.5 shrink-0" size={20} />
               <div>
                 <a
-                  href="mailto:18675548079@163.com"
+                  href="mailto:wendian1989@gmail.com"
                   className="text-gray-700 hover:text-blue-600 block"
                   aria-label="Email us"
                 >
-                  18675548079@163.com
+                  wendian1989@gmail.com
                 </a>
                 <a
-                  href="mailto:wendian1989@gmail.com"
+                  href="mailto:18675548079@163.com"
                   className="text-gray-700 hover:text-blue-600 block mt-1"
                   aria-label="Email us"
                 >
-                  wendian1989@gmail.com
+                  18675548079@163.com
                 </a>
               </div>
             </li>
