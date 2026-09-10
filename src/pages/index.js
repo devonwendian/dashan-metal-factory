@@ -11,7 +11,7 @@ import OurCustomers from '@/components/OurCustomers';
 // import ContactUs from '@/components/ContactUs';
 import Head from 'next/head';
 import { useTranslation } from 'next-i18next';
-import { absoluteUrl, alternateHrefLangLinks, absolutePublicUrl } from '@/lib/i18n-seo';
+import { absoluteUrl, alternateHrefLangLinks, absolutePublicUrl, homeSeoTitle } from '@/lib/i18n-seo';
 import { buildSiteOrganizationGraph } from '@/lib/site-schema';
 import SeoOpenGraph from '@/components/SeoOpenGraph';
 
@@ -19,7 +19,7 @@ export default function Home() {
   const { t, i18n } = useTranslation(['home', 'common']);
 
   const siteName = t('site_name', { ns: 'common' });
-  const pageTitle = `${siteName} | ${t('title_tagline', { ns: 'home' })}`;
+  const pageTitle = homeSeoTitle(i18n.language, siteName, t('title_tagline', { ns: 'home' }));
   const canonicalUrl = absoluteUrl(i18n.language, '/');
   const alternates = alternateHrefLangLinks('/');
   const ogImage = absolutePublicUrl('/images/factory-intro/factory-gate.jpg');
@@ -28,10 +28,11 @@ export default function Home() {
     description: t('description', { ns: 'home' }),
     logoUrl: absolutePublicUrl('/images/logo.jpg'),
     alternateNames: [
+      t('legal_name', { ns: 'common' }),
       t('site_name_alt', { ns: 'common' }),
       'Dashan Metal',
       'dsmetalstamping.com',
-    ].filter(Boolean),
+    ],
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Room 101, No. 12 Banhu East Street, Huangjiang Town',
@@ -40,6 +41,10 @@ export default function Home() {
       postalCode: '523750',
       addressCountry: 'CN',
     },
+    areaServed: [
+      { '@type': 'Country', name: 'China' },
+      { '@type': 'Place', name: 'Worldwide' },
+    ],
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+86-18576639259',

@@ -11,9 +11,11 @@ export function buildSiteOrganizationGraph({
   alternateNames = [],
   contactPoint,
   address,
+  areaServed,
 }) {
   const orgId = `${SITE_BASE}/#organization`;
   const websiteId = `${SITE_BASE}/#website`;
+  const uniqueAlternateNames = [...new Set(alternateNames.filter((n) => n && n !== siteName))];
 
   return {
     '@context': 'https://schema.org',
@@ -23,7 +25,7 @@ export function buildSiteOrganizationGraph({
         '@id': websiteId,
         url: SITE_BASE,
         name: siteName,
-        ...(alternateNames.length ? { alternateName: alternateNames } : {}),
+        ...(uniqueAlternateNames.length ? { alternateName: uniqueAlternateNames } : {}),
         publisher: { '@id': orgId },
       },
       {
@@ -33,9 +35,10 @@ export function buildSiteOrganizationGraph({
         url: SITE_BASE,
         logo: logoUrl,
         description,
-        ...(alternateNames.length ? { alternateName: alternateNames } : {}),
+        ...(uniqueAlternateNames.length ? { alternateName: uniqueAlternateNames } : {}),
         ...(address ? { address } : {}),
         ...(contactPoint ? { contactPoint } : {}),
+        ...(areaServed ? { areaServed } : {}),
       },
     ],
   };

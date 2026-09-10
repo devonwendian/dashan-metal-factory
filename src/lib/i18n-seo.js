@@ -44,4 +44,12 @@ export function absolutePublicUrl(publicPath) {
   return `${SITE_BASE}${p}`;
 }
 
+/**
+ * Homepage title: commercial phrase first so China / process keywords
+ * sit in the SERP window; brand is the suffix.
+ */
+export function homeSeoTitle(_locale, siteName, tagline) {
+  return `${tagline} | ${siteName}`;
+}
+
 export { SITE_BASE, I18N_LOCALES, DEFAULT_LOCALE };
